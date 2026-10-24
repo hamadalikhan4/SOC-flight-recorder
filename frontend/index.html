@@ -1,0 +1,969 @@
+<![CDATA[
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="color-scheme"
+    content="dark"
+  >
+
+  <title>Spectra | Flight Recorder</title>
+
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/pages.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       ENTERPRISE SIDEBAR
+       ===================================================== -->
+
+  <aside
+    id="sidebar"
+    class="sidebar"
+    aria-label="Spectra navigation"
+    hidden
+  >
+
+    <!-- Brand -->
+
+    <div class="sidebar-brand">
+
+      <div
+        class="spectra-mark"
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 3 H14 L12 12 H22 L18 29 H12 L15 17 H5 L8 3 Z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+
+      <div class="sidebar-brand-copy">
+        <strong>SPECTRA</strong>
+        <small>FLIGHT RECORDER</small>
+      </div>
+
+    </div>
+
+    <!-- Workspace -->
+
+    <div class="sidebar-workspace">
+
+      <div
+        class="workspace-icon"
+        aria-hidden="true"
+      >
+        S
+      </div>
+
+      <div class="workspace-copy">
+        <strong>Spectra Security Lab</strong>
+        <span>Enterprise workspace</span>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+
+    <div class="sidebar-section-label">
+      OPERATIONS
+    </div>
+
+    <nav
+      class="sidebar-nav"
+      aria-label="Dashboard navigation"
+    >
+
+      <!-- Overview -->
+
+      <button
+        class="sidebar-link"
+        data-view="overview"
+        type="button"
+      >
+        <span
+          class="sidebar-link-icon"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="4" y="4" width="6" height="16" rx="1"/>
+            <rect x="14" y="4" width="6" height="16" rx="1"/>
+          </svg>
+        </span>
+
+        <span class="sidebar-link-label">
+          Overview
+        </span>
+      </button>
+
+      <!-- Endpoints -->
+
+      <button
+        class="sidebar-link"
+        data-view="endpoints"
+        type="button"
+      >
+        <span
+          class="sidebar-link-icon"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="4" y="4" width="16" height="14" rx="1.5"/>
+            <path d="M9 21H15"/>
+            <path d="M12 18V21"/>
+          </svg>
+        </span>
+
+        <span class="sidebar-link-label">
+          Endpoints
+        </span>
+      </button>
+
+      <!-- Threat Hunting -->
+
+      <button
+        class="sidebar-link"
+        data-view="events"
+        type="button"
+      >
+        <span
+          class="sidebar-link-icon"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="10.5" cy="10.5" r="5.5"/>
+            <path d="M15 15L20 20"/>
+            <path d="M10.5 8V13"/>
+            <path d="M8 10.5H13"/>
+          </svg>
+        </span>
+
+        <span class="sidebar-link-label">
+          Threat hunting
+        </span>
+      </button>
+
+      <!-- Investigations -->
+
+      <button
+        class="sidebar-link"
+        data-view="incidents"
+        type="button"
+      >
+        <span
+          class="sidebar-link-icon"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="10" cy="10" r="5"/>
+            <path d="M14 14L20 20"/>
+            <path d="M10 7V10"/>
+            <path d="M10 13H10.01"/>
+          </svg>
+        </span>
+
+        <span class="sidebar-link-label">
+          Investigations
+        </span>
+
+        <span
+          id="sidebar-incident-count"
+          class="sidebar-count"
+          aria-label="Open investigations"
+          hidden
+        >
+          0
+        </span>
+      </button>
+
+      <!-- Recordings -->
+
+      <button
+        class="sidebar-link"
+        data-view="recordings"
+        type="button"
+      >
+        <span
+          class="sidebar-link-icon"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3A9 9 0 1 0 21 12"/>
+            <path d="M12 3V12H21"/>
+          </svg>
+        </span>
+
+        <span class="sidebar-link-label">
+          Recordings
+        </span>
+      </button>
+
+      <!-- Policy -->
+
+      <button
+        class="sidebar-link"
+        data-view="policy"
+        type="button"
+      >
+        <span
+          class="sidebar-link-icon"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="
+                M12 3
+                L19 6
+                V11
+                C19 15.5 16.2 19.2 12 21
+                C7.8 19.2 5 15.5 5 11
+                V6
+                L12 3
+                Z
+              "
+            />
+            <path d="M9 12L11 14L15 10"/>
+          </svg>
+        </span>
+
+        <span class="sidebar-link-label">
+          Recorder policy
+        </span>
+      </button>
+
+      <!-- Audit -->
+
+      <button
+        class="sidebar-link"
+        data-view="audit"
+        type="button"
+      >
+        <span
+          class="sidebar-link-icon"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+          >
+            <path d="M8 6H19"/>
+            <path d="M8 12H19"/>
+            <path d="M8 18H19"/>
+            <circle cx="4.5" cy="6" r="1"/>
+            <circle cx="4.5" cy="12" r="1"/>
+            <circle cx="4.5" cy="18" r="1"/>
+          </svg>
+        </span>
+
+        <span class="sidebar-link-label">
+          Audit trail
+        </span>
+      </button>
+
+    </nav>
+
+    <!-- Sidebar bottom -->
+
+    <div class="sidebar-bottom">
+
+      <div class="sidebar-environment">
+
+        <div class="environment-title">
+
+          <span
+            class="environment-dot"
+            aria-hidden="true"
+          ></span>
+
+          <span>
+            Recorder telemetry
+          </span>
+
+        </div>
+
+        <small>
+          Analyst session active
+        </small>
+
+      </div>
+
+      <div class="sidebar-profile">
+
+        <div
+          class="profile-avatar"
+          aria-hidden="true"
+        >
+          HK
+        </div>
+
+        <div class="profile-copy">
+          <strong>Hamad Ali Khan</strong>
+          <span>SOC analyst</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =====================================================
+       APPLICATION HEADER
+       ===================================================== -->
+
+  <header class="app-header">
+
+    <div class="app-header-brand">
+
+      <span class="header-product">
+        SPECTRA
+      </span>
+
+      <span
+        class="header-divider"
+        aria-hidden="true"
+      >
+        /
+      </span>
+
+      <span class="header-module">
+        FLIGHT RECORDER
+      </span>
+
+      <!-- Compatibility element used by existing JS. -->
+
+      <strong
+        id="current-view"
+        hidden
+      >
+        Analyst console
+      </strong>
+
+    </div>
+
+    <div class="top-actions">
+
+      <small
+        id="last-updated"
+        aria-live="polite"
+      ></small>
+
+      <button
+        id="refresh"
+        type="button"
+        hidden
+      >
+        Refresh
+      </button>
+
+      <button
+        id="logout"
+        type="button"
+        hidden
+      >
+        Lock dashboard
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN APPLICATION
+       ===================================================== -->
+
+  <main>
+
+    <!-- Login -->
+
+    <section
+      id="login"
+      class="panel login"
+    >
+
+      <span class="eyebrow">
+        Analyst access
+      </span>
+
+      <h1>
+        Connect to your recorder
+      </h1>
+
+      <p>
+        Authenticate with the analyst token from your
+        Spectra server configuration.
+      </p>
+
+      <form id="login-form">
+
+        <label>
+
+          Analyst token
+
+          <input
+            id="token"
+            type="password"
+            required
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Paste your analyst token"
+          >
+
+        </label>
+
+        <button
+          class="primary"
+          type="submit"
+        >
+          Connect to Spectra
+        </button>
+
+      </form>
+
+      <p>
+        <small>
+          The analyst token stays only in this page's
+          active memory. Reloading or locking the
+          dashboard clears the session.
+        </small>
+      </p>
+
+    </section>
+
+
+    <!-- ===================================================
+         AUTHENTICATED WORKSPACE
+         =================================================== -->
+
+    <section
+      id="workspace"
+      hidden
+    >
+
+      <div
+        id="metrics"
+        hidden
+      ></div>
+
+
+      <!-- =================================================
+           THREAT HUNTING FILTERS
+           ================================================= -->
+
+      <section
+        id="filters"
+        class="panel hunting-panel"
+        hidden
+      >
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="eyebrow">
+              Telemetry explorer
+            </span>
+
+            <h2>
+              Threat hunting
+            </h2>
+
+          </div>
+
+          <span
+            id="event-result-count"
+            class="muted"
+            role="status"
+            aria-live="polite"
+          ></span>
+
+        </div>
+
+
+        <form id="filter-form">
+
+          <div class="hunt-filters">
+
+            <!-- Search -->
+
+            <label class="hunt-search">
+
+              Search telemetry
+
+              <input
+                id="query"
+                type="search"
+                maxlength="200"
+                autocomplete="off"
+                placeholder="Process, command, IP, DNS, filename or text"
+              >
+
+            </label>
+
+
+            <!-- Endpoint -->
+
+            <label>
+
+              Endpoint
+
+              <select id="endpoint">
+
+                <option value="">
+                  All endpoints
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <!-- Category -->
+
+            <label>
+
+              Category
+
+              <select id="category">
+
+                <option value="">
+                  All categories
+                </option>
+
+                <option value="process">
+                  Process
+                </option>
+
+                <option value="file">
+                  File
+                </option>
+
+                <option value="network">
+                  Network
+                </option>
+
+                <option value="dns">
+                  DNS
+                </option>
+
+                <option value="health">
+                  Health
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <!-- Source -->
+
+            <label>
+
+              Source
+
+              <select id="source">
+
+                <option value="">
+                  All sources
+                </option>
+
+                <option value="endpoint">
+                  Endpoint telemetry
+                </option>
+
+                <option value="replay">
+                  Synthetic replay
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <!-- ===========================================
+                 MILESTONE 7B — COLLECTOR ACTIVITY
+                 =========================================== -->
+
+            <label>
+
+              Collector activity
+
+              <select
+                id="collector-activity"
+                name="collector-activity"
+                title="Control visibility of recognized Spectra collector events"
+              >
+
+                <option value="all" selected>
+                  All activity
+                </option>
+
+                <option value="hide">
+                  Hide collector activity
+                </option>
+
+                <option value="only">
+                  Collector activity only
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <!-- Sort -->
+
+            <label>
+
+              Sort
+
+              <select id="order">
+
+                <option value="desc">
+                  Newest first
+                </option>
+
+                <option value="asc">
+                  Oldest first
+                </option>
+
+              </select>
+
+            </label>
+
+
+            <!-- Start -->
+
+            <label>
+
+              From
+
+              <input
+                id="start-time"
+                type="datetime-local"
+              >
+
+            </label>
+
+
+            <!-- End -->
+
+            <label>
+
+              To
+
+              <input
+                id="end-time"
+                type="datetime-local"
+              >
+
+            </label>
+
+
+            <!-- Exact event ID -->
+
+            <label>
+
+              Event ID
+
+              <input
+                id="event-id"
+                type="text"
+                maxlength="200"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="Exact event ID"
+              >
+
+            </label>
+
+
+            <!-- Process GUID -->
+
+            <label>
+
+              Process GUID
+
+              <input
+                id="guid"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
+              >
+
+            </label>
+
+          </div>
+
+
+          <!-- Hunt actions -->
+
+          <div class="actions hunt-actions">
+
+            <button
+              class="primary"
+              type="submit"
+            >
+              Hunt telemetry
+            </button>
+
+            <button
+              id="clear"
+              type="button"
+            >
+              Clear filters
+            </button>
+
+          </div>
+
+
+          <p class="hunt-note">
+            Search retained telemetry only. Collector-activity
+            filtering changes search visibility, not stored events.
+            Results do not imply complete endpoint coverage
+            or a malicious/benign verdict.
+          </p>
+
+        </form>
+
+      </section>
+
+
+      <!-- =================================================
+           ACTIVE PAGE
+           ================================================= -->
+
+      <section
+        class="panel"
+        id="main-panel"
+      >
+
+        <h1 id="title">
+          Operations overview
+        </h1>
+
+        <p id="description"></p>
+
+        <div id="content"></div>
+
+
+        <!-- Pagination -->
+
+        <div
+          id="pagination"
+          class="pager"
+          hidden
+        >
+
+          <button
+            id="previous"
+            type="button"
+          >
+            Previous
+          </button>
+
+          <span
+            id="page-label"
+            class="muted"
+            aria-live="polite"
+          ></span>
+
+          <button
+            id="next"
+            type="button"
+          >
+            Next
+          </button>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+    <!-- Global message -->
+
+    <p
+      id="message"
+      role="status"
+      aria-live="polite"
+    ></p>
+
+  </main>
+
+
+  <!-- =====================================================
+       ENDPOINT DETAILS DRAWER
+       ===================================================== -->
+
+  <dialog
+    id="endpoint-details"
+    aria-labelledby="endpoint-detail-title"
+  >
+
+    <div class="section-heading">
+
+      <div>
+
+        <span class="eyebrow">
+          Endpoint
+        </span>
+
+        <h2 id="endpoint-detail-title">
+          Endpoint details
+        </h2>
+
+      </div>
+
+      <button
+        id="close-endpoint"
+        type="button"
+      >
+        Close
+      </button>
+
+    </div>
+
+    <div id="endpoint-detail-body"></div>
+
+  </dialog>
+
+
+  <!-- =====================================================
+       ANALYST EVENT INSPECTION
+       ===================================================== -->
+
+  <dialog
+    id="details"
+    aria-labelledby="detail-title"
+  >
+
+    <div class="section-heading">
+
+      <div>
+
+        <span class="eyebrow">
+          Analyst inspection
+        </span>
+
+        <h2 id="detail-title">
+          Details
+        </h2>
+
+      </div>
+
+      <button
+        id="close-details"
+        type="button"
+      >
+        Close
+      </button>
+
+    </div>
+
+
+    <div
+      id="detail-summary"
+      class="event-inspection-summary"
+    ></div>
+
+
+    <section class="hunt-context-section">
+
+      <h3>
+        Raw record
+      </h3>
+
+      <pre id="detail-json"></pre>
+
+    </section>
+
+
+    <div
+      id="detail-actions"
+      class="actions"
+    ></div>
+
+  </dialog>
+
+
+  <!-- =====================================================
+       FRONTEND ENTRY POINT
+       ===================================================== -->
+
+  <script
+    type="module"
+    src="./js/app.js"
+  ></script>
+
+</body>
+
+</html>
+]]>

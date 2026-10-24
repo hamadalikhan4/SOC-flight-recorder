@@ -1,0 +1,13 @@
+<Sysmon schemaversion="4.90">
+  <HashAlgorithms>sha256</HashAlgorithms>
+  <EventFiltering>
+    <RuleGroup name="Flight Recorder lab telemetry" groupRelation="or">
+      <ProcessCreate onmatch="exclude" />
+      <NetworkConnect onmatch="exclude" />
+      <DnsQuery onmatch="exclude" />
+      <FileCreate onmatch="include">
+        <TargetFilename condition="begin with">C:\Lab\</TargetFilename>
+      </FileCreate>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

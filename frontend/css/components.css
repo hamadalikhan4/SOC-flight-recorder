@@ -1,0 +1,493 @@
+/* =========================================================
+   Enterprise panels
+   ========================================================= */
+
+.panel {
+  position: relative;
+
+  margin: 18px 0;
+  padding: 22px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 27, 41, 0.96),
+      rgba(12, 21, 33, 0.96)
+    );
+
+  box-shadow:
+    var(--shadow-sm),
+    inset 0 1px 0 rgba(255, 255, 255, 0.018);
+}
+
+.panel::before {
+  content: "";
+
+  position: absolute;
+  inset: 0 0 auto 0;
+
+  height: 1px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(89, 225, 194, 0.16),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   Section headings
+   ========================================================= */
+
+.section-heading,
+.fleet-result-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  margin-bottom: 17px;
+}
+
+.section-heading h2,
+.fleet-result-heading h2 {
+  margin: 0;
+}
+
+.section-heading > div:first-child,
+.fleet-result-heading > div:first-child {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   Badges
+   ========================================================= */
+
+.badge {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  min-height: 24px;
+
+  padding: 4px 9px;
+
+  border: 1px solid #2b3e55;
+  border-radius: 999px;
+
+  color: #b4c4d8;
+
+  background:
+    rgba(32, 48, 68, 0.72);
+
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 670;
+  letter-spacing: 0.2px;
+
+  white-space: nowrap;
+}
+
+.badge.online {
+  color: #78efd5;
+
+  border-color:
+    rgba(89, 225, 194, 0.28);
+
+  background:
+    rgba(24, 73, 62, 0.55);
+}
+
+.badge.offline,
+.badge.high,
+.badge.critical {
+  color: #ffb2bb;
+
+  border-color:
+    rgba(255, 125, 138, 0.28);
+
+  background:
+    rgba(86, 37, 44, 0.52);
+}
+
+.badge.never_seen,
+.badge.revoked {
+  color: #f3cf84;
+
+  border-color:
+    rgba(244, 197, 106, 0.3);
+
+  background:
+    rgba(79, 63, 32, 0.52);
+}
+
+
+/* =========================================================
+   Tables
+   ========================================================= */
+
+.table-wrap {
+  position: relative;
+
+  overflow: auto;
+
+  border: 1px solid var(--line-soft);
+  border-radius: 11px;
+
+  background:
+    rgba(7, 12, 20, 0.3);
+}
+
+table {
+  width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th,
+td {
+  text-align: left;
+
+  padding: 12px 12px;
+
+  border-bottom:
+    1px solid var(--line-soft);
+
+  vertical-align: middle;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+
+  color: #8598b0;
+
+  background:
+    rgba(10, 17, 27, 0.97);
+
+  backdrop-filter:
+    blur(12px);
+
+  font-size: 10px;
+  line-height: 1.3;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.85px;
+
+  white-space: nowrap;
+}
+
+td {
+  max-width: 440px;
+
+  color: #c4d1e1;
+
+  font-size: 12px;
+
+  overflow-wrap: anywhere;
+}
+
+tbody tr {
+  transition:
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+tbody tr:hover {
+  background:
+    rgba(28, 45, 66, 0.52);
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+td strong {
+  color: #edf4ff;
+}
+
+
+/* =========================================================
+   Pagination
+   ========================================================= */
+
+.pager {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  margin-top: 18px;
+}
+
+.pager button {
+  min-width: 84px;
+}
+
+
+/* =========================================================
+   Status messages
+   ========================================================= */
+
+#message {
+  min-height: 25px;
+
+  color: var(--accent);
+
+  font-size: 12px;
+
+  transition: color var(--transition);
+}
+
+#message.error {
+  color: #ff9daa;
+}
+
+
+/* =========================================================
+   Dialogs
+   ========================================================= */
+
+dialog {
+  width: min(
+    920px,
+    calc(100vw - 34px)
+  );
+
+  max-height: 88vh;
+
+  overflow: auto;
+
+  padding: 0;
+
+  border: 1px solid #2a3b52;
+  border-radius: 16px;
+
+  color: var(--text);
+
+  background:
+    linear-gradient(
+      160deg,
+      #111c2a,
+      #0c1520 68%
+    );
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.56),
+    0 0 0 1px rgba(255, 255, 255, 0.02);
+
+  animation:
+    spectra-dialog-in
+    160ms ease-out;
+}
+
+dialog > * {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+dialog > :first-child {
+  margin-top: 24px;
+}
+
+dialog > :last-child {
+  margin-bottom: 24px;
+}
+
+dialog::backdrop {
+  background:
+    rgba(1, 5, 10, 0.76);
+
+  backdrop-filter:
+    blur(7px);
+}
+
+@keyframes spectra-dialog-in {
+  from {
+    opacity: 0;
+    transform:
+      translateY(7px)
+      scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   Details
+   ========================================================= */
+
+.detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+
+  margin: 22px 0;
+}
+
+.detail-field {
+  min-width: 0;
+
+  padding: 13px 14px;
+
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
+  background:
+    rgba(9, 16, 25, 0.68);
+}
+
+.detail-field dt {
+  margin-bottom: 7px;
+
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+}
+
+.detail-field dd {
+  margin: 0;
+
+  color: var(--text-soft);
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Notes
+   ========================================================= */
+
+.report-note {
+  position: relative;
+
+  padding: 13px 16px;
+
+  border: 1px solid
+    rgba(89, 225, 194, 0.16);
+
+  border-left:
+    3px solid var(--accent);
+
+  border-radius:
+    0 9px 9px 0;
+
+  background:
+    rgba(31, 78, 71, 0.24);
+}
+
+.coverage-note {
+  padding: 13px 16px;
+
+  border: 1px solid
+    rgba(244, 197, 106, 0.14);
+
+  border-left:
+    3px solid var(--warning);
+
+  border-radius:
+    0 9px 9px 0;
+
+  background:
+    rgba(93, 74, 36, 0.19);
+}
+
+
+/* =========================================================
+   Generic empty/loading states
+   ========================================================= */
+
+.empty-state,
+.loading-state {
+  padding: 40px 20px;
+
+  text-align: center;
+
+  color: var(--muted);
+}
+
+.empty-state strong,
+.loading-state strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--text);
+}
+
+
+/* =========================================================
+   Responsive components
+   ========================================================= */
+
+@media (
+  max-width: 650px
+) {
+  .section-heading,
+  .fleet-result-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pager {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (
+  max-width: 500px
+) {
+  .panel {
+    padding: 17px;
+    border-radius: 12px;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  dialog > * {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}

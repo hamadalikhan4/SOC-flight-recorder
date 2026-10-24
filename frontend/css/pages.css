@@ -1,0 +1,7993 @@
+/* =========================================================
+   Shared workspace
+   ========================================================= */
+
+#main-panel {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   Login
+   ========================================================= */
+
+.login {
+  max-width: 490px;
+
+  margin:
+    80px auto;
+
+  padding: 30px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    var(--radius-xl);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 29, 44, 0.98),
+      rgba(10, 18, 29, 0.98)
+    );
+
+  box-shadow:
+    var(--shadow-lg),
+    0 0 80px
+      rgba(35, 132, 112, 0.06);
+}
+
+.login button {
+  width: 100%;
+
+  margin-top: 18px;
+}
+
+
+/* =========================================================
+   Overview
+   ========================================================= */
+
+.overview-panel {
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  box-shadow: none;
+}
+
+.overview-panel::before {
+  display: none;
+}
+
+
+/* =========================================================
+   Overview metrics
+   ========================================================= */
+
+.metrics {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 15px;
+
+  margin:
+    24px 0;
+}
+
+.metric {
+  position: relative;
+
+  min-height: 132px;
+
+  padding: 19px 20px;
+
+  overflow: hidden;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    13px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(89, 225, 194, 0.09),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      #111e2d,
+      #0d1723
+    );
+
+  box-shadow:
+    var(--shadow-sm);
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.metric::after {
+  content: "";
+
+  position: absolute;
+
+  left: 19px;
+  bottom: 0;
+
+  width: 38px;
+  height: 2px;
+
+  border-radius:
+    999px;
+
+  background:
+    var(--accent);
+
+  opacity: 0.58;
+}
+
+.metric:hover {
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(89, 225, 194, 0.28);
+
+  box-shadow:
+    var(--shadow-accent);
+}
+
+.metric strong {
+  display: block;
+
+  margin:
+    8px 0 7px;
+
+  color: #f1f8ff;
+
+  font-size:
+    clamp(
+      27px,
+      3vw,
+      34px
+    );
+
+  line-height: 1;
+
+  letter-spacing: -1.4px;
+}
+
+.metric p {
+  margin: 0;
+
+  color: #7f93ac;
+
+  font-size: 10px;
+  font-weight: 650;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.55px;
+}
+
+
+/* =========================================================
+   Overview layout
+   ========================================================= */
+
+.overview-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      0,
+      1.6fr
+    )
+    minmax(
+      300px,
+      1fr
+    );
+
+  gap: 18px;
+}
+
+.overview-grid .panel {
+  min-width: 0;
+
+  margin: 0;
+}
+
+.wide {
+  grid-column:
+    1 / -1;
+}
+
+
+/* =========================================================
+   Activity bars
+   ========================================================= */
+
+.bars {
+  display: flex;
+
+  align-items: flex-end;
+
+  height: 135px;
+
+  gap: 6px;
+
+  margin:
+    22px 0 9px;
+}
+
+.bar-slot {
+  position: relative;
+
+  display: flex;
+
+  flex: 1;
+
+  align-items: flex-end;
+
+  height: 100%;
+
+  border-bottom:
+    1px solid var(--line);
+}
+
+.bar {
+  width: 100%;
+
+  min-height: 2px;
+
+  border-radius:
+    4px 4px 1px 1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #6ceacf,
+      #36bfa0
+    );
+
+  box-shadow:
+    0 0 14px
+      rgba(89, 225, 194, 0.1);
+
+  opacity: 0.86;
+
+  transition:
+    opacity var(--transition),
+    filter var(--transition);
+}
+
+.bar:hover {
+  opacity: 1;
+  filter: brightness(1.08);
+}
+
+.chart-labels {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  color: #788ba3;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Category distribution
+   ========================================================= */
+
+.category-row {
+  display: grid;
+
+  grid-template-columns:
+    84px
+    1fr
+    60px;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 16px 0;
+
+  color: #a9b8ca;
+
+  font-size: 12px;
+}
+
+.track {
+  position: relative;
+
+  height: 6px;
+
+  overflow: hidden;
+
+  border-radius: 99px;
+
+  background:
+    #1a2737;
+}
+
+.fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #34bea0,
+      #65e5c8
+    );
+
+  box-shadow:
+    0 0 10px
+      rgba(89, 225, 194, 0.12);
+}
+
+
+/* =========================================================
+   Event explorer
+   ========================================================= */
+
+.filters,
+.timeline-controls {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 13px;
+}
+
+
+/* =========================================================
+   Endpoint fleet
+   ========================================================= */
+
+.fleet-controls {
+  display: grid;
+
+  grid-template-columns:
+    2fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 12px;
+
+  margin:
+    22px 0;
+
+  align-items: end;
+}
+
+.fleet-summary,
+.incident-strip {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin:
+    18px 0;
+}
+
+.fleet-summary .badge {
+  padding:
+    6px 11px;
+}
+
+.device-name {
+  color: #e7f0fb;
+
+  font-weight: 670;
+}
+
+.device-id {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #74879e;
+
+  font:
+    10px/1.5
+    "Cascadia Code",
+    Consolas,
+    monospace;
+}
+
+
+/* =========================================================
+   Endpoint drawer
+   ========================================================= */
+
+#endpoint-details {
+  width:
+    min(
+      620px,
+      100vw
+    );
+
+  height: 100dvh;
+
+  max-height: 100dvh;
+
+  margin:
+    0 0 0 auto;
+
+  padding: 30px;
+
+  border-width:
+    0 0 0 1px;
+
+  border-radius: 0;
+
+  background:
+    linear-gradient(
+      160deg,
+      #101b29,
+      #0a121d
+    );
+}
+
+#endpoint-details h2 {
+  color: #eef6ff;
+
+  font-size: 24px;
+
+  letter-spacing:
+    -0.5px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Recordings
+   ========================================================= */
+
+.recording-dates {
+  color: #9eb0c5;
+
+  font-size: 11px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Investigation workspace
+   ========================================================= */
+
+.investigation-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(
+      290px,
+      0.82fr
+    )
+    minmax(
+      0,
+      1.65fr
+    );
+
+  gap: 18px;
+
+  margin-top: 20px;
+}
+
+.investigation-card {
+  min-width: 0;
+
+  padding: 18px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14, 24, 37, 0.96),
+      rgba(10, 18, 29, 0.96)
+    );
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.015);
+}
+
+
+/* =========================================================
+   Process tree
+   ========================================================= */
+
+.process-tree {
+  max-height: 560px;
+
+  overflow: auto;
+
+  padding:
+    4px 3px;
+}
+
+.process-row {
+  margin:
+    7px 0
+    7px var(--indent);
+
+  padding-left: 11px;
+
+  border-left:
+    1px solid #30465e;
+}
+
+.process-node {
+  width: 100%;
+
+  padding: 10px 11px;
+
+  text-align: left;
+
+  border-color: #24364b;
+
+  background:
+    linear-gradient(
+      180deg,
+      #132033,
+      #101b2a
+    );
+
+  box-shadow: none;
+}
+
+.process-node:hover:not(:disabled) {
+  border-color: #3b5671;
+
+  background:
+    #17263a;
+}
+
+.process-node.selected {
+  color: #ddfff7;
+
+  border-color:
+    rgba(89, 225, 194, 0.5);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(26, 71, 62, 0.8),
+      rgba(18, 50, 46, 0.8)
+    );
+
+  box-shadow:
+    0 0 0 2px
+      rgba(89, 225, 194, 0.04);
+}
+
+.process-node strong,
+.process-node small {
+  display: block;
+
+  overflow-wrap: anywhere;
+}
+
+.process-node small {
+  margin-top: 3px;
+
+  color: #71859d;
+
+  font-size: 9px;
+}
+
+.process-inspector {
+  margin-top: 18px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid var(--line);
+}
+
+.process-inspector > strong {
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Investigation timeline
+   ========================================================= */
+
+.timeline-controls {
+  margin:
+    16px 0;
+}
+
+.timeline-search {
+  grid-column:
+    1 / -1;
+}
+
+.timeline-list {
+  margin-top: 18px;
+}
+
+.timeline-event {
+  position: relative;
+
+  margin-left: 5px;
+
+  padding:
+    0 0 18px 17px;
+
+  border-left:
+    2px solid #26384c;
+}
+
+.timeline-event::before {
+  content: "";
+
+  position: absolute;
+
+  left: -5px;
+  top: 3px;
+
+  width: 8px;
+  height: 8px;
+
+  border:
+    2px solid #344b63;
+
+  border-radius: 50%;
+
+  background: #0d1622;
+}
+
+.timeline-event.trigger {
+  border-color:
+    #ff8e99;
+}
+
+.timeline-event.trigger::before {
+  border-color:
+    #ff8e99;
+
+  background:
+    #48252c;
+
+  box-shadow:
+    0 0 10px
+      rgba(255, 125, 138, 0.18);
+}
+
+.timeline-event-head {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+.timeline-event strong {
+  display: block;
+
+  margin:
+    8px 0 3px;
+
+  overflow-wrap: anywhere;
+}
+
+.timeline-event p {
+  margin:
+    4px 0 8px;
+
+  color: #8397ae;
+
+  font:
+    11px/1.65
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Threat Hunting / Telemetry Explorer
+   ========================================================= */
+
+.hunting-panel {
+  margin-top: 0;
+
+  border-color:
+    rgba(43, 61, 83, 0.95);
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(89, 225, 194, 0.045),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      #101a28,
+      #0d1622
+    );
+}
+
+.hunting-panel .section-heading {
+  margin-bottom: 21px;
+}
+
+.hunting-panel h2 {
+  margin:
+    4px 0 0;
+
+  font-size: 20px;
+  letter-spacing:
+    -0.35px;
+}
+
+
+/* =========================================================
+   Hunting filter console
+   ========================================================= */
+
+.hunt-filters {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+
+  align-items: end;
+
+  padding: 17px;
+
+  border:
+    1px solid var(--line-soft);
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 15, 24, 0.66),
+      rgba(10, 18, 28, 0.42)
+    );
+}
+
+.hunt-search {
+  grid-column:
+    span 2;
+}
+
+.hunt-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 15px;
+
+  flex-wrap: wrap;
+}
+
+.hunt-actions button.primary {
+  min-width: 128px;
+}
+
+.hunt-note {
+  margin:
+    14px 0 0;
+
+  padding:
+    10px 12px;
+
+  border-left:
+    2px solid #365069;
+
+  color: #778ca4;
+
+  font-size: 11px;
+
+  background:
+    rgba(17, 30, 44, 0.38);
+}
+
+
+/* =========================================================
+   Telemetry rows
+   ========================================================= */
+
+.event-process {
+  min-width: 175px;
+}
+
+.event-process strong {
+  display: block;
+
+  color: #e4edf8;
+
+  overflow-wrap: anywhere;
+}
+
+.event-process small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #70849b;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+
+  overflow-wrap: anywhere;
+}
+
+.event-target {
+  max-width: 360px;
+
+  color: #a6b8cb;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+
+  overflow-wrap: anywhere;
+}
+
+.event-endpoint strong {
+  display: block;
+
+  color: #dce7f4;
+}
+
+.event-endpoint small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #74889f;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Event inspection
+   ========================================================= */
+
+.event-inspection-summary {
+  margin:
+    18px 0 24px;
+}
+
+.event-inspection-summary h3 {
+  margin-bottom: 12px;
+}
+
+#detail-json {
+  max-height: 430px;
+
+  overflow: auto;
+
+  padding: 16px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 10px;
+
+  color: #b8cae0;
+
+  background:
+    #070d15;
+
+  box-shadow:
+    inset 0 0 24px
+      rgba(0, 0, 0, 0.16);
+}
+
+#detail-actions {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  margin-top: 18px;
+
+  padding-top: 18px;
+
+  border-top:
+    1px solid var(--line);
+}
+
+#detail-actions button {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   Threat Hunting Investigation Context
+   ========================================================= */
+
+.inspection-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.inspection-heading h3 {
+  margin:
+    4px 0 0;
+
+  color: #ebf3fc;
+
+  font-size: 20px;
+
+  letter-spacing:
+    -0.35px;
+
+  overflow-wrap: anywhere;
+}
+
+.hunt-context-section {
+  margin-top: 24px;
+
+  padding-top: 20px;
+
+  border-top:
+    1px solid var(--line);
+}
+
+.hunt-context-section > h3 {
+  margin-top: 0;
+
+  font-size: 14px;
+}
+
+.async-context {
+  min-height: 48px;
+}
+
+
+/* =========================================================
+   Process relationship trail
+   ========================================================= */
+
+.process-trail {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        190px,
+        1fr
+      )
+    );
+
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.process-trail-node {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 13px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0e1825,
+      #0a131e
+    );
+
+  transition:
+    border-color var(--transition),
+    transform var(--transition),
+    background var(--transition);
+}
+
+.process-trail-node:hover {
+  transform:
+    translateY(-1px);
+
+  border-color:
+    #344d66;
+
+  background:
+    #101c2b;
+}
+
+.process-trail-node.current {
+  border-color:
+    rgba(89, 225, 194, 0.38);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 66, 57, 0.56),
+      rgba(14, 43, 39, 0.6)
+    );
+
+  box-shadow:
+    inset 0 0 20px
+      rgba(89, 225, 194, 0.025);
+}
+
+.process-trail-node small,
+.process-trail-node strong,
+.process-trail-node span,
+.process-trail-node code {
+  display: block;
+}
+
+.process-trail-node small {
+  margin-bottom: 7px;
+
+  color: var(--accent);
+
+  font-size: 8px;
+  font-weight: 750;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.45px;
+}
+
+.process-trail-node strong {
+  color: #e4edf8;
+
+  overflow-wrap: anywhere;
+}
+
+.process-trail-node span {
+  margin-top: 5px;
+
+  color: #8599b0;
+
+  font-size: 10px;
+
+  overflow-wrap: anywhere;
+}
+
+.process-trail-node code {
+  margin-top: 7px;
+
+  color: #72869d;
+
+  font-size: 9px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Related telemetry summary
+   ========================================================= */
+
+.related-category-summary {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin:
+    12px 0;
+}
+
+.event-inspection-summary .detail-grid {
+  margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   High-Signal Hunting Indicators
+   ========================================================= */
+
+.badge.signal-high {
+  color: #ffb1bb;
+
+  border:
+    1px solid
+      rgba(255, 125, 138, 0.38);
+
+  background:
+    rgba(91, 36, 44, 0.63);
+
+  box-shadow:
+    inset 0 0 12px
+      rgba(255, 125, 138, 0.045);
+}
+
+.badge.signal-review {
+  color: #f1ce83;
+
+  border:
+    1px solid
+      rgba(244, 197, 106, 0.34);
+
+  background:
+    rgba(85, 67, 30, 0.58);
+}
+
+.badge.signal-context {
+  color: #a5b6ca;
+
+  border:
+    1px solid #293b50;
+
+  background:
+    rgba(28, 43, 61, 0.75);
+}
+
+
+/* =========================================================
+   Signal assessment card
+   ========================================================= */
+
+.signal-panel {
+  position: relative;
+
+  margin:
+    18px 0 22px;
+
+  padding: 17px;
+
+  overflow: hidden;
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 11px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(89, 225, 194, 0.05),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #0d1723,
+      #0a131d
+    );
+}
+
+.signal-panel-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap: 12px;
+}
+
+.signal-panel-heading h3 {
+  margin: 0;
+}
+
+.signal-score {
+  margin:
+    13px 0;
+
+  color: #afc2d7;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 12px;
+}
+
+.signal-list {
+  display: grid;
+
+  gap: 9px;
+
+  margin:
+    14px 0;
+}
+
+.signal-item {
+  padding:
+    12px 14px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 9px;
+
+  background:
+    rgba(16, 28, 42, 0.78);
+
+  transition:
+    border-color var(--transition),
+    background var(--transition);
+}
+
+.signal-item:hover {
+  border-color:
+    #334b64;
+
+  background:
+    rgba(19, 34, 51, 0.92);
+}
+
+.signal-item-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content:
+    space-between;
+
+  gap: 12px;
+}
+
+.signal-item p {
+  margin:
+    7px 0 0;
+
+  color: #8195ad;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   Responsive pages
+   ========================================================= */
+
+@media (
+  max-width: 1200px
+) {
+  .hunt-filters {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+  .hunt-search {
+    grid-column:
+      1 / -1;
+  }
+}
+
+@media (
+  max-width: 1100px
+) {
+  .metrics {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+  .overview-grid,
+  .investigation-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .fleet-controls {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+}
+
+@media (
+  max-width: 760px
+) {
+  .metrics {
+    gap: 10px;
+  }
+
+  .metric {
+    min-height: 112px;
+
+    padding: 15px;
+  }
+
+  .process-trail {
+    grid-template-columns:
+      1fr;
+  }
+
+  .inspection-heading {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+}
+
+@media (
+  max-width: 650px
+) {
+  .hunt-filters {
+    grid-template-columns:
+      1fr;
+
+    padding: 14px;
+  }
+
+  .hunt-search {
+    grid-column: auto;
+  }
+
+  .signal-panel-heading,
+  .signal-item-heading {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+}
+
+@media (
+  max-width: 500px
+) {
+  .metrics {
+    grid-template-columns:
+      1fr;
+  }
+
+  .filters,
+  .fleet-controls,
+  .timeline-controls {
+    grid-template-columns:
+      1fr;
+  }
+
+  #endpoint-details {
+    padding: 18px;
+  }
+
+  .hunt-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hunt-actions button {
+    width: 100%;
+  }
+}
+
+
+
+
+/* =========================================================
+   Enterprise Overview Dashboard
+   ========================================================= */
+
+.enterprise-overview {
+  display: grid;
+  gap: 20px;
+}
+
+
+/* =========================================================
+   Overview Hero
+   ========================================================= */
+
+.overview-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  min-height: 152px;
+
+  padding: 26px 28px;
+
+  overflow: hidden;
+
+  border: 1px solid
+    rgba(54, 77, 101, 0.8);
+
+  border-radius: 15px;
+
+  background:
+    radial-gradient(
+      circle at 88% 15%,
+      rgba(89, 225, 194, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 70% 90%,
+      rgba(74, 116, 183, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #111e2e 0%,
+      #0c1622 62%,
+      #0b141e 100%
+    );
+
+  box-shadow:
+    0 18px 44px
+    rgba(0, 0, 0, 0.22);
+}
+
+
+.overview-hero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -80px;
+  top: -140px;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid
+    rgba(89, 225, 194, 0.06);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 45px
+      rgba(89, 225, 194, 0.018),
+    0 0 0 95px
+      rgba(89, 225, 194, 0.012);
+
+  pointer-events: none;
+}
+
+
+.overview-hero-copy {
+  position: relative;
+  z-index: 1;
+
+  max-width: 720px;
+}
+
+
+.overview-hero-title {
+  margin:
+    6px 0 9px;
+
+  color: #f1f7ff;
+
+  font-size:
+    clamp(
+      22px,
+      2.2vw,
+      30px
+    );
+
+  letter-spacing: -0.8px;
+}
+
+
+.overview-hero-description {
+  max-width: 690px;
+
+  margin: 0;
+
+  color: #94a7bc;
+
+  line-height: 1.65;
+}
+
+
+.overview-hero-actions {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 9px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   Enterprise metrics
+   ========================================================= */
+
+.enterprise-metrics {
+  margin: 0;
+}
+
+
+.enterprise-metric {
+  cursor: default;
+}
+
+
+.enterprise-metric[role="button"] {
+  cursor: pointer;
+}
+
+
+.enterprise-metric[role="button"]:focus-visible {
+  outline:
+    2px solid var(--accent);
+
+  outline-offset:
+    3px;
+}
+
+
+.metric-top {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+
+.metric-copy {
+  min-width: 0;
+}
+
+
+.metric-copy small {
+  display: block;
+
+  color: #879bb3;
+
+  font-size: 9px;
+
+  font-weight: 720;
+
+  letter-spacing: 0.65px;
+}
+
+
+.metric-eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #617992;
+
+  font-size: 8px;
+
+  font-weight: 750;
+
+  letter-spacing: 1.4px;
+}
+
+
+.metric-indicator {
+  width: 8px;
+  height: 8px;
+
+  flex: 0 0 auto;
+
+  margin-top: 4px;
+
+  border-radius: 50%;
+
+  background: #668096;
+
+  box-shadow:
+    0 0 10px
+    rgba(102, 128, 150, 0.2);
+}
+
+
+.metric-value {
+  display: block;
+
+  margin:
+    15px 0 9px !important;
+}
+
+
+.metric-note {
+  min-height: 32px;
+}
+
+
+.metric-healthy
+.metric-indicator {
+  background: #59e1c2;
+
+  box-shadow:
+    0 0 12px
+    rgba(89, 225, 194, 0.4);
+}
+
+
+.metric-warning
+.metric-indicator {
+  background: #f4c56a;
+
+  box-shadow:
+    0 0 12px
+    rgba(244, 197, 106, 0.35);
+}
+
+
+.metric-danger
+.metric-indicator {
+  background: #ff7d8a;
+
+  box-shadow:
+    0 0 12px
+    rgba(255, 125, 138, 0.35);
+}
+
+
+.metric-info
+.metric-indicator {
+  background: #72a7ff;
+
+  box-shadow:
+    0 0 12px
+    rgba(114, 167, 255, 0.35);
+}
+
+
+.metric-accent
+.metric-indicator {
+  background: #ab91ff;
+
+  box-shadow:
+    0 0 12px
+    rgba(171, 145, 255, 0.35);
+}
+
+
+/* =========================================================
+   Enterprise Overview Grid
+   ========================================================= */
+
+.enterprise-overview-grid {
+  grid-template-columns:
+    minmax(0, 1.65fr)
+    minmax(300px, 0.85fr);
+}
+
+
+/* =========================================================
+   Section Headers
+   ========================================================= */
+
+.overview-section {
+  position: relative;
+}
+
+
+.overview-section-heading {
+  align-items: flex-start;
+}
+
+
+.section-heading-copy {
+  min-width: 0;
+}
+
+
+.section-heading-copy h2 {
+  margin:
+    4px 0 4px;
+
+  font-size: 16px;
+}
+
+
+.section-subtitle {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #71869e;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   Telemetry summary
+   ========================================================= */
+
+.telemetry-summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+
+  margin:
+    8px 0 4px;
+}
+
+
+.overview-stat {
+  min-width: 0;
+
+  padding:
+    12px 13px;
+
+  border: 1px solid
+    #1d2b3d;
+
+  border-radius: 9px;
+
+  background:
+    rgba(7, 13, 21, 0.42);
+}
+
+
+.overview-stat-label {
+  display: block;
+
+  color: #657d98;
+
+  font-size: 8px;
+
+  font-weight: 750;
+
+  letter-spacing: 1px;
+}
+
+
+.overview-stat-value {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #e9f2fc;
+
+  font-size: 19px;
+
+  line-height: 1.1;
+}
+
+
+.overview-stat small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #6f849c;
+
+  font-size: 9px;
+}
+
+
+.overview-stat.healthy
+.overview-stat-value {
+  color: #69e6c9;
+}
+
+
+.overview-stat.warning
+.overview-stat-value {
+  color: #efc879;
+}
+
+
+.overview-stat.danger
+.overview-stat-value {
+  color: #ff9ca7;
+}
+
+
+/* =========================================================
+   Telemetry Chart
+   ========================================================= */
+
+.telemetry-chart {
+  margin-top: 8px;
+}
+
+
+.enterprise-bars {
+  height: 158px;
+
+  gap: 4px;
+
+  padding-top: 16px;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 38px,
+      rgba(59, 78, 101, 0.18)
+        39px
+    );
+}
+
+
+.enterprise-bar-slot {
+  border-bottom:
+    1px solid #26374a;
+}
+
+
+.enterprise-bar {
+  min-height: 2px;
+
+  opacity: 0.75;
+
+  background:
+    linear-gradient(
+      180deg,
+      #70ead0,
+      #31b998
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(89, 225, 194, 0.08);
+}
+
+
+.enterprise-bar.current {
+  opacity: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      #91f7df,
+      #44d4b4
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(89, 225, 194, 0.18);
+}
+
+
+.enterprise-bar-slot:hover
+.enterprise-bar {
+  opacity: 1;
+}
+
+
+.enterprise-chart-labels {
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   Operational Health
+   ========================================================= */
+
+.operations-health-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 9px;
+
+  margin-top: 10px;
+}
+
+
+.operations-health-grid
+.overview-stat {
+  min-height: 95px;
+}
+
+
+.operations-note {
+  margin:
+    14px 0 0;
+
+  padding:
+    11px 12px;
+
+  border-left:
+    2px solid #35516b;
+
+  background:
+    rgba(18, 31, 46, 0.45);
+
+  color: #788ca3;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Event Categories
+   ========================================================= */
+
+.enterprise-category-row {
+  grid-template-columns:
+    100px
+    minmax(80px, 1fr)
+    70px;
+
+  gap: 12px;
+
+  margin: 18px 0;
+}
+
+
+.category-label {
+  min-width: 0;
+}
+
+
+.category-label strong {
+  display: block;
+
+  color: #cdd9e7;
+
+  font-size: 11px;
+
+  text-transform: capitalize;
+}
+
+
+.category-label small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #637991;
+
+  font-size: 8px;
+}
+
+
+.category-count {
+  color: #a9b9cc;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   Investigation table
+   ========================================================= */
+
+.overview-incident-name
+strong {
+  display: block;
+}
+
+
+.investigate-action {
+  border-color:
+    rgba(255, 125, 138, 0.3);
+}
+
+
+.badge.source-endpoint {
+  color: #7cebd1;
+
+  border-color:
+    rgba(89, 225, 194, 0.24);
+
+  background:
+    rgba(27, 74, 65, 0.42);
+}
+
+
+.badge.source-replay {
+  color: #9ec5ff;
+
+  border-color:
+    rgba(114, 167, 255, 0.25);
+
+  background:
+    rgba(37, 59, 91, 0.46);
+}
+
+
+/* =========================================================
+   Empty / success states
+   ========================================================= */
+
+.overview-empty-state {
+  margin:
+    16px 0;
+
+  padding:
+    28px 20px;
+
+  border:
+    1px dashed #25384e;
+
+  border-radius: 10px;
+
+  color: #768ca4;
+
+  text-align: center;
+
+  background:
+    rgba(8, 15, 24, 0.4);
+}
+
+
+.overview-success-state {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin:
+    14px 0 18px;
+
+  padding:
+    16px;
+
+  border:
+    1px solid
+    rgba(89, 225, 194, 0.17);
+
+  border-radius: 10px;
+
+  background:
+    rgba(24, 72, 62, 0.22);
+}
+
+
+.overview-success-icon {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(89, 225, 194, 0.25);
+
+  border-radius: 50%;
+
+  color: #68e7ca;
+
+  background:
+    rgba(35, 104, 89, 0.25);
+
+  font-weight: 800;
+}
+
+
+.overview-success-copy
+strong {
+  display: block;
+}
+
+
+.overview-success-copy
+p {
+  margin:
+    3px 0 0;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   Queue / Audit
+   ========================================================= */
+
+.queue-warning {
+  color: #f2ca79;
+
+  font-weight: 700;
+}
+
+
+.audit-action-name {
+  color: #9fc0dd;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Responsive Overview
+   ========================================================= */
+
+@media (
+  max-width: 1200px
+) {
+
+  .overview-hero {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .overview-hero-actions {
+    justify-content:
+      flex-start;
+  }
+
+
+  .enterprise-overview-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+@media (
+  max-width: 850px
+) {
+
+  .telemetry-summary {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .operations-health-grid {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+}
+
+
+@media (
+  max-width: 600px
+) {
+
+  .overview-hero {
+    padding:
+      20px;
+  }
+
+
+  .overview-hero-actions {
+    width: 100%;
+  }
+
+
+  .overview-hero-actions
+  button {
+    width: 100%;
+  }
+
+
+  .operations-health-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .enterprise-category-row {
+    grid-template-columns:
+      85px
+      minmax(60px, 1fr)
+      58px;
+  }
+
+}
+
+/* =========================================================
+   Enterprise Endpoint Fleet
+   ========================================================= */
+
+.fleet-page {
+  display: grid;
+  gap: 18px;
+}
+
+
+/* =========================================================
+   Fleet command hero
+   ========================================================= */
+
+.fleet-command {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  min-height: 128px;
+
+  padding:
+    23px 25px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #26394f;
+
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 92% 15%,
+      rgba(89, 225, 194, 0.09),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #101c2b,
+      #0c1622
+    );
+
+  box-shadow:
+    0 14px 36px
+    rgba(0, 0, 0, 0.2);
+}
+
+
+.fleet-command::after {
+  content: "";
+
+  position: absolute;
+
+  right: -75px;
+  top: -125px;
+
+  width: 245px;
+  height: 245px;
+
+  border:
+    1px solid
+    rgba(89, 225, 194, 0.05);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 38px
+      rgba(89, 225, 194, 0.014),
+    0 0 0 78px
+      rgba(89, 225, 194, 0.01);
+
+  pointer-events: none;
+}
+
+
+.fleet-command-copy {
+  position: relative;
+  z-index: 1;
+
+  max-width: 690px;
+}
+
+
+.fleet-command-title {
+  margin:
+    5px 0 7px;
+
+  color: #eff6ff;
+
+  font-size: 23px;
+
+  letter-spacing:
+    -0.55px;
+}
+
+
+.fleet-command-description {
+  margin: 0;
+
+  color: #8499b1;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+.fleet-command > button {
+  position: relative;
+
+  z-index: 1;
+
+  flex: 0 0 auto;
+}
+
+
+/* =========================================================
+   Fleet KPIs
+   ========================================================= */
+
+.fleet-kpi-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 12px;
+}
+
+
+.fleet-kpi-card {
+  position: relative;
+
+  min-width: 0;
+
+  padding:
+    17px 18px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #223247;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #111d2b,
+      #0d1723
+    );
+
+  box-shadow:
+    0 8px 22px
+    rgba(0, 0, 0, 0.14);
+}
+
+
+.fleet-kpi-card::after {
+  content: "";
+
+  position: absolute;
+
+  left: 18px;
+  bottom: 0;
+
+  width: 28px;
+  height: 2px;
+
+  border-radius: 99px;
+
+  background: #526a83;
+}
+
+
+.fleet-kpi-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+
+.fleet-kpi-label {
+  color: #7289a3;
+
+  font-size: 8px;
+
+  font-weight: 760;
+
+  letter-spacing: 1px;
+}
+
+
+.fleet-kpi-indicator {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #71869c;
+}
+
+
+.fleet-kpi-value {
+  display: block;
+
+  margin:
+    13px 0 6px;
+
+  color: #edf5ff;
+
+  font-size: 27px;
+
+  line-height: 1;
+
+  letter-spacing:
+    -0.8px;
+}
+
+
+.fleet-kpi-note {
+  color: #71879f;
+
+  font-size: 9px;
+}
+
+
+.fleet-kpi-healthy
+.fleet-kpi-indicator,
+.fleet-kpi-healthy::after {
+  background: #59e1c2;
+}
+
+
+.fleet-kpi-warning
+.fleet-kpi-indicator,
+.fleet-kpi-warning::after {
+  background: #f4c56a;
+}
+
+
+.fleet-kpi-danger
+.fleet-kpi-indicator,
+.fleet-kpi-danger::after {
+  background: #ff7d8a;
+}
+
+
+.fleet-kpi-info
+.fleet-kpi-indicator,
+.fleet-kpi-info::after {
+  background: #72a7ff;
+}
+
+
+/* =========================================================
+   Filter console
+   ========================================================= */
+
+.fleet-filter-panel {
+  margin: 0;
+
+  padding: 20px;
+}
+
+
+.enterprise-fleet-controls {
+  margin:
+    8px 0 0;
+
+  padding: 15px;
+
+  border:
+    1px solid #1d2c3e;
+
+  border-radius: 11px;
+
+  background:
+    rgba(7, 13, 21, 0.4);
+}
+
+
+/* =========================================================
+   Results
+   ========================================================= */
+
+.fleet-results-panel {
+  margin: 0;
+
+  min-width: 0;
+}
+
+
+.enterprise-fleet-result-heading {
+  margin-bottom: 16px;
+}
+
+
+.enterprise-fleet-result-heading
+h2 {
+  margin:
+    4px 0 0;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   Device identity
+   ========================================================= */
+
+.fleet-device {
+  min-width: 180px;
+}
+
+
+.fleet-device-name {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
+
+
+.fleet-device-name strong {
+  color: #eaf2fc;
+
+  font-size: 12px;
+}
+
+
+.fleet-device-name span {
+  padding:
+    2px 6px;
+
+  border:
+    1px solid #273a50;
+
+  border-radius: 5px;
+
+  color: #7f99b5;
+
+  background:
+    rgba(24, 39, 57, 0.66);
+
+  font-size: 8px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    0.5px;
+}
+
+
+/* =========================================================
+   Collector column
+   ========================================================= */
+
+.endpoint-collector-cell {
+  min-width: 130px;
+}
+
+
+.endpoint-collector-cell strong,
+.endpoint-contact-cell strong,
+.endpoint-queue-cell strong {
+  display: block;
+
+  color: #c8d6e6;
+
+  font-size: 11px;
+}
+
+
+.endpoint-collector-cell small,
+.endpoint-contact-cell small,
+.endpoint-queue-cell small {
+  display: block;
+
+  max-width: 210px;
+
+  margin-top: 4px;
+
+  color: #687f98;
+
+  font-size: 8px;
+
+  line-height: 1.45;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Contact state
+   ========================================================= */
+
+.endpoint-contact-cell {
+  min-width: 105px;
+}
+
+
+/* =========================================================
+   Queue state
+   ========================================================= */
+
+.endpoint-queue-cell {
+  min-width: 92px;
+}
+
+
+.endpoint-queue-cell.healthy
+strong {
+  color: #78e9cf;
+}
+
+
+.endpoint-queue-cell.warning
+strong {
+  color: #f0ca7a;
+}
+
+
+.endpoint-queue-cell.danger
+strong {
+  color: #ff9da8;
+}
+
+
+/* =========================================================
+   Fleet actions
+   ========================================================= */
+
+.fleet-row-actions {
+  min-width: 145px;
+
+  flex-wrap: nowrap;
+}
+
+
+.fleet-details-button,
+.fleet-events-button {
+  min-height: 32px;
+
+  padding:
+    6px 11px;
+
+  font-size: 10px;
+}
+
+
+.fleet-events-button {
+  border-color:
+    rgba(89, 225, 194, 0.23);
+
+  color: #80ead2;
+
+  background:
+    rgba(29, 72, 64, 0.35);
+}
+
+
+.fleet-events-button:hover:not(:disabled) {
+  border-color:
+    rgba(89, 225, 194, 0.46);
+
+  background:
+    rgba(31, 89, 77, 0.46);
+}
+
+
+/* =========================================================
+   Fleet pagination
+   ========================================================= */
+
+.fleet-page-label {
+  color: #7d92aa;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Empty state
+   ========================================================= */
+
+.fleet-empty-state {
+  padding:
+    42px 20px;
+
+  border:
+    1px dashed #26394f;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  background:
+    rgba(7, 13, 21, 0.3);
+}
+
+
+.fleet-empty-state strong {
+  display: block;
+
+  color: #dce7f4;
+}
+
+
+.fleet-empty-state p {
+  max-width: 520px;
+
+  margin:
+    7px auto 0;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   Fleet coverage note
+   ========================================================= */
+
+.fleet-coverage-note {
+  margin:
+    16px 0 0;
+
+  padding:
+    11px 13px;
+
+  border-left:
+    2px solid #344c65;
+
+  color: #6f849d;
+
+  background:
+    rgba(12, 22, 33, 0.48);
+
+  font-size: 9px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   Enterprise Endpoint Drawer
+   ========================================================= */
+
+#endpoint-details {
+  width:
+    min(
+      660px,
+      100vw
+    );
+
+  padding:
+    26px 28px 30px;
+}
+
+
+.endpoint-drawer-summary {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin:
+    18px 0;
+
+  padding:
+    17px;
+
+  border:
+    1px solid #22354a;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101d2b,
+      #0d1722
+    );
+}
+
+
+.endpoint-drawer-summary-copy {
+  min-width: 0;
+}
+
+
+.endpoint-platform-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #68839e;
+
+  font-size: 8px;
+
+  font-weight: 750;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    1px;
+}
+
+
+.endpoint-contact-value {
+  display: block;
+
+  color: #edf5ff;
+
+  font-size: 20px;
+
+  line-height: 1.15;
+}
+
+
+.endpoint-drawer-summary-copy
+small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #71869e;
+
+  font-size: 9px;
+}
+
+
+.endpoint-status-badges {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   Drawer health banner
+   ========================================================= */
+
+.endpoint-health-banner {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin:
+    0 0 22px;
+
+  padding:
+    12px 14px;
+
+  border:
+    1px solid #26394d;
+
+  border-radius: 9px;
+
+  background:
+    rgba(12, 23, 35, 0.7);
+}
+
+
+.endpoint-health-banner p {
+  margin: 0;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+
+.endpoint-health-dot {
+  width: 7px;
+  height: 7px;
+
+  flex: 0 0 auto;
+
+  margin-top: 4px;
+
+  border-radius: 50%;
+
+  background: #778da5;
+}
+
+
+.endpoint-health-banner.online
+.endpoint-health-dot {
+  background: #59e1c2;
+
+  box-shadow:
+    0 0 10px
+    rgba(89, 225, 194, 0.4);
+}
+
+
+.endpoint-health-banner.offline
+.endpoint-health-dot {
+  background: #ff7d8a;
+
+  box-shadow:
+    0 0 10px
+    rgba(255, 125, 138, 0.32);
+}
+
+
+.endpoint-health-banner.never_seen
+.endpoint-health-dot {
+  background: #f4c56a;
+}
+
+
+.endpoint-health-banner.revoked
+.endpoint-health-dot {
+  background: #a892ff;
+}
+
+
+/* =========================================================
+   Drawer sections
+   ========================================================= */
+
+.endpoint-drawer-section {
+  margin-top: 24px;
+
+  padding-top: 21px;
+
+  border-top:
+    1px solid #1d2c3e;
+}
+
+
+.endpoint-drawer-section h3 {
+  margin:
+    4px 0 13px;
+
+  color: #e4edf8;
+
+  font-size: 14px;
+}
+
+
+.endpoint-drawer-section p {
+  font-size: 10px;
+}
+
+
+.endpoint-detail-grid {
+  margin:
+    14px 0 0;
+}
+
+
+.endpoint-detail-field {
+  background:
+    rgba(7, 13, 21, 0.42);
+}
+
+
+/* =========================================================
+   Collector message
+   ========================================================= */
+
+.endpoint-collector-message {
+  max-height: 180px;
+
+  overflow: auto;
+
+  margin: 0;
+
+  padding:
+    14px;
+
+  border:
+    1px solid #1d2d40;
+
+  border-radius: 9px;
+
+  color: #a9bdd4;
+
+  background:
+    #070d15;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Quick actions
+   ========================================================= */
+
+.endpoint-quick-actions {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 8px;
+
+  margin-top: 14px;
+}
+
+
+.endpoint-quick-actions button {
+  width: 100%;
+
+  min-height: 38px;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Snapshot footer
+   ========================================================= */
+
+.endpoint-snapshot-note {
+  margin:
+    25px 0 0;
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid #1c2b3d;
+
+  color: #647b94;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Responsive Endpoint Fleet
+   ========================================================= */
+
+@media (
+  max-width: 1100px
+) {
+
+  .fleet-kpi-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+@media (
+  max-width: 760px
+) {
+
+  .fleet-command {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+
+  .fleet-command > button {
+    width: 100%;
+  }
+
+
+  .endpoint-drawer-summary {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+
+  .endpoint-status-badges {
+    justify-content:
+      flex-start;
+  }
+
+
+  .endpoint-quick-actions {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+@media (
+  max-width: 500px
+) {
+
+  .fleet-kpi-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .endpoint-quick-actions {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+/* =========================================================
+   Enterprise Threat Hunting Workspace
+   ========================================================= */
+
+
+/* =========================================================
+   Hunting Filter Console
+   ========================================================= */
+
+.hunting-panel {
+  position: relative;
+
+  margin-bottom: 18px;
+
+  padding: 22px;
+
+  overflow: hidden;
+
+  border-color: #26394e;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(89, 225, 194, 0.07),
+      transparent 28%
+    ),
+    linear-gradient(
+      145deg,
+      #101c2a,
+      #0c1621
+    );
+}
+
+
+.hunting-panel::after {
+  content: "";
+
+  position: absolute;
+
+  right: -75px;
+  top: -130px;
+
+  width: 260px;
+  height: 260px;
+
+  border:
+    1px solid
+    rgba(89, 225, 194, 0.045);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 42px
+      rgba(89, 225, 194, 0.012),
+    0 0 0 86px
+      rgba(89, 225, 194, 0.008);
+
+  pointer-events: none;
+}
+
+
+.hunting-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.hunting-panel
+.section-heading h2 {
+  margin-top: 4px;
+
+  color: #eef6ff;
+
+  font-size: 20px;
+
+  letter-spacing: -0.4px;
+}
+
+
+#event-result-count {
+  padding: 6px 10px;
+
+  border: 1px solid #293d53;
+
+  border-radius: 999px;
+
+  color: #91a8c1;
+
+  background:
+    rgba(10, 19, 29, 0.72);
+
+  font-size: 9px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   Hunting Inputs
+   ========================================================= */
+
+.hunt-filters {
+  padding: 16px;
+
+  border:
+    1px solid #1e2e41;
+
+  border-radius: 11px;
+
+  background:
+    rgba(6, 12, 20, 0.42);
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.012);
+}
+
+
+.hunt-filters label {
+  color: #8095ad;
+}
+
+
+.hunt-filters input,
+.hunt-filters select {
+  min-height: 39px;
+}
+
+
+.hunt-search input {
+  border-color:
+    rgba(89, 225, 194, 0.22);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 16, 25, 0.98),
+      rgba(7, 14, 23, 0.98)
+    );
+}
+
+
+.hunt-search input:focus {
+  border-color:
+    rgba(89, 225, 194, 0.62);
+}
+
+
+.hunt-actions {
+  margin-top: 13px;
+}
+
+
+.hunt-actions
+button.primary {
+  min-width: 135px;
+}
+
+
+.hunt-note {
+  margin-top: 13px;
+
+  border-color: #344d67;
+
+  color: #6f849c;
+}
+
+
+/* =========================================================
+   Hunting Current-Page Summary
+   ========================================================= */
+
+.threat-results {
+  display: grid;
+
+  gap: 16px;
+}
+
+
+.hunt-results-summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 9px;
+}
+
+
+.hunt-result-stat {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 12px 13px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #1f3044;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101b29,
+      #0b1520
+    );
+}
+
+
+.hunt-result-stat::after {
+  content: "";
+
+  position: absolute;
+
+  left: 13px;
+  bottom: 0;
+
+  width: 26px;
+  height: 2px;
+
+  border-radius: 99px;
+
+  background: #5d7188;
+}
+
+
+.hunt-result-stat > span {
+  display: block;
+
+  color: #667e98;
+
+  font-size: 7px;
+
+  font-weight: 780;
+
+  letter-spacing: 0.9px;
+}
+
+
+.hunt-result-stat > strong {
+  display: block;
+
+  margin:
+    7px 0 4px;
+
+  color: #e9f2fc;
+
+  font-size: 19px;
+
+  line-height: 1;
+}
+
+
+.hunt-result-stat > small {
+  display: block;
+
+  color: #687e96;
+
+  font-size: 8px;
+}
+
+
+.hunt-result-stat.high::after {
+  background: #ff7d8a;
+}
+
+
+.hunt-result-stat.high
+> strong {
+  color: #ff9da8;
+}
+
+
+.hunt-result-stat.review::after {
+  background: #f4c56a;
+}
+
+
+.hunt-result-stat.review
+> strong {
+  color: #efca7d;
+}
+
+
+.hunt-result-stat.context::after {
+  background: #7790a9;
+}
+
+
+.hunt-result-stat.neutral::after {
+  background: #59e1c2;
+}
+
+
+/* =========================================================
+   Hunting Results Table
+   ========================================================= */
+
+.hunt-results-table {
+  min-width: 0;
+
+  overflow: auto;
+
+  border:
+    1px solid #1d2c3f;
+
+  border-radius: 11px;
+
+  background:
+    rgba(6, 12, 19, 0.25);
+}
+
+
+.hunt-results-table
+.table-wrap {
+  border: 0;
+
+  border-radius: 0;
+}
+
+
+.hunt-results-table th {
+  top: 0;
+
+  padding:
+    11px 12px;
+
+  background:
+    rgba(8, 15, 24, 0.98);
+}
+
+
+.hunt-results-table td {
+  padding:
+    11px 12px;
+}
+
+
+.hunt-results-table tbody tr {
+  transition:
+    background 140ms ease,
+    box-shadow 140ms ease;
+}
+
+
+.hunt-results-table tbody tr:hover {
+  background:
+    rgba(30, 48, 70, 0.48);
+
+  box-shadow:
+    inset 3px 0 0
+    rgba(89, 225, 194, 0.22);
+}
+
+
+/* =========================================================
+   Event Time Cell
+   ========================================================= */
+
+.event-time-cell {
+  min-width: 84px;
+}
+
+
+.event-time-cell strong {
+  display: block;
+
+  color: #cbd9e9;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+
+  font-weight: 630;
+}
+
+
+.event-time-cell small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #657c96;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Category Badges
+   ========================================================= */
+
+.event-category-badge,
+.related-category-badge {
+  text-transform: capitalize;
+}
+
+
+.event-category-badge.category-process,
+.related-category-badge.category-process {
+  color: #83ebd3;
+
+  border-color:
+    rgba(89, 225, 194, 0.22);
+
+  background:
+    rgba(27, 75, 65, 0.38);
+}
+
+
+.event-category-badge.category-network,
+.related-category-badge.category-network {
+  color: #91bdff;
+
+  border-color:
+    rgba(114, 167, 255, 0.25);
+
+  background:
+    rgba(38, 63, 101, 0.42);
+}
+
+
+.event-category-badge.category-dns,
+.related-category-badge.category-dns {
+  color: #beaaff;
+
+  border-color:
+    rgba(171, 145, 255, 0.25);
+
+  background:
+    rgba(59, 46, 96, 0.42);
+}
+
+
+.event-category-badge.category-file,
+.related-category-badge.category-file {
+  color: #f0cc82;
+
+  border-color:
+    rgba(244, 197, 106, 0.25);
+
+  background:
+    rgba(81, 64, 31, 0.4);
+}
+
+
+.event-category-badge.category-health,
+.related-category-badge.category-health {
+  color: #9eafc3;
+
+  border-color: #304158;
+
+  background:
+    rgba(31, 46, 64, 0.48);
+}
+
+
+/* =========================================================
+   Endpoint Cell
+   ========================================================= */
+
+.event-endpoint {
+  min-width: 135px;
+}
+
+
+.event-endpoint strong {
+  color: #dce8f5;
+
+  font-size: 11px;
+}
+
+
+.event-endpoint small {
+  max-width: 180px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   Process Cell
+   ========================================================= */
+
+.event-process {
+  min-width: 160px;
+}
+
+
+.event-process strong {
+  font-size: 11px;
+}
+
+
+.event-process small {
+  max-width: 205px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   Target Cell
+   ========================================================= */
+
+.event-target {
+  display: -webkit-box;
+
+  min-width: 180px;
+  max-width: 340px;
+
+  overflow: hidden;
+
+  color: #93a7bc;
+
+  font-size: 9px;
+
+  line-height: 1.55;
+
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+/* =========================================================
+   Signal Cell
+   ========================================================= */
+
+.event-signal-cell {
+  display: grid;
+
+  justify-items: start;
+
+  gap: 4px;
+
+  min-width: 92px;
+}
+
+
+.event-signal-score {
+  color: #627a93;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   Source Badges
+   ========================================================= */
+
+.badge.event-source-endpoint {
+  color: #76ead0;
+
+  border-color:
+    rgba(89, 225, 194, 0.22);
+
+  background:
+    rgba(29, 74, 65, 0.38);
+}
+
+
+.badge.event-source-replay {
+  color: #9abfff;
+
+  border-color:
+    rgba(114, 167, 255, 0.23);
+
+  background:
+    rgba(39, 59, 91, 0.43);
+}
+
+
+/* =========================================================
+   Inspect Action
+   ========================================================= */
+
+.inspect-event-button {
+  min-height: 31px;
+
+  padding:
+    6px 11px;
+
+  border-color:
+    rgba(89, 225, 194, 0.24);
+
+  color: #7be8d0;
+
+  background:
+    rgba(27, 72, 63, 0.34);
+
+  font-size: 9px;
+}
+
+
+.inspect-event-button:hover:not(:disabled) {
+  border-color:
+    rgba(89, 225, 194, 0.48);
+
+  background:
+    rgba(31, 89, 77, 0.46);
+}
+
+
+/* =========================================================
+   Results Footer
+   ========================================================= */
+
+.hunt-results-disclaimer {
+  margin: 0;
+
+  padding:
+    10px 12px;
+
+  border-left:
+    2px solid #344c65;
+
+  color: #687e97;
+
+  background:
+    rgba(10, 19, 29, 0.45);
+
+  font-size: 8px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   Hunting Empty State
+   ========================================================= */
+
+.hunt-empty-state {
+  padding:
+    42px 20px;
+
+  border:
+    1px dashed #26394f;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  background:
+    rgba(7, 13, 21, 0.32);
+}
+
+
+.hunt-empty-state strong {
+  display: block;
+
+  color: #dce7f4;
+}
+
+
+.hunt-empty-state p {
+  max-width: 520px;
+
+  margin:
+    7px auto 0;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Enterprise Event Inspection Dialog
+   ========================================================= */
+
+#details {
+  width:
+    min(
+      1060px,
+      calc(100vw - 34px)
+    );
+
+  max-height: 92vh;
+}
+
+
+.enterprise-event-inspection {
+  margin-top: 18px;
+}
+
+
+.inspection-heading {
+  padding-bottom: 17px;
+
+  border-bottom:
+    1px solid #1d2d40;
+}
+
+
+.inspection-subtitle {
+  max-width: 680px;
+
+  margin:
+    6px 0 0;
+
+  color: #71869e;
+
+  font-size: 9px;
+
+  line-height: 1.55;
+}
+
+
+.inspection-badges {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 6px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   Event Detail Grid
+   ========================================================= */
+
+.event-context-heading {
+  margin-top: 22px;
+}
+
+
+.event-context-heading h3 {
+  margin:
+    4px 0 0;
+
+  color: #e4edf8;
+}
+
+
+.event-detail-grid {
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 9px;
+}
+
+
+.event-detail-field {
+  min-height: 74px;
+
+  padding: 11px 12px;
+
+  background:
+    rgba(7, 14, 22, 0.46);
+}
+
+
+.event-detail-field dd {
+  color: #aebfd1;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   Context Sections
+   ========================================================= */
+
+.enterprise-context-section {
+  margin-top: 26px;
+
+  padding-top: 22px;
+}
+
+
+.context-section-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 13px;
+}
+
+
+.context-section-copy h3 {
+  margin:
+    4px 0 4px;
+
+  color: #e3edf8;
+}
+
+
+.context-section-copy p {
+  margin: 0;
+
+  color: #6e849c;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Async States
+   ========================================================= */
+
+.context-loading-state,
+.context-empty-state,
+.context-error-state {
+  padding:
+    18px;
+
+  border:
+    1px solid #213248;
+
+  border-radius: 9px;
+
+  color: #758ba3;
+
+  background:
+    rgba(8, 15, 24, 0.46);
+
+  font-size: 9px;
+
+  text-align: center;
+}
+
+
+.context-error-state {
+  color: #f09aa5;
+
+  border-color:
+    rgba(255, 125, 138, 0.2);
+
+  background:
+    rgba(76, 28, 35, 0.2);
+}
+
+
+.context-note {
+  margin:
+    10px 0 0;
+
+  color: #657b93;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Enterprise Process Trail
+   ========================================================= */
+
+.enterprise-process-trail {
+  gap: 9px;
+}
+
+
+.enterprise-process-trail
+.process-trail-node {
+  min-height: 116px;
+
+  padding: 13px;
+
+  border-color: #213349;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0e1926,
+      #09131e
+    );
+}
+
+
+.enterprise-process-trail
+.process-trail-node.current {
+  border-color:
+    rgba(89, 225, 194, 0.4);
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(89, 225, 194, 0.08),
+      transparent 48%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(20, 63, 56, 0.62),
+      rgba(12, 38, 35, 0.64)
+    );
+}
+
+
+.enterprise-process-trail
+.process-trail-node.process-parent {
+  border-color:
+    rgba(114, 167, 255, 0.18);
+}
+
+
+.enterprise-process-trail
+.process-trail-node.child {
+  border-color:
+    rgba(171, 145, 255, 0.17);
+}
+
+
+.enterprise-process-trail
+.process-trail-node.no-children {
+  opacity: 0.72;
+}
+
+
+/* =========================================================
+   Related Telemetry
+   ========================================================= */
+
+.related-telemetry-content {
+  display: grid;
+
+  gap: 12px;
+}
+
+
+.related-telemetry-toolbar {
+  padding:
+    12px 13px;
+
+  border:
+    1px solid #1f3043;
+
+  border-radius: 9px;
+
+  background:
+    rgba(8, 16, 25, 0.48);
+}
+
+
+.related-category-summary {
+  margin: 0;
+}
+
+
+.related-telemetry-description {
+  margin:
+    9px 0 0;
+
+  color: #6d839b;
+
+  font-size: 8px;
+}
+
+
+.related-table-wrap {
+  overflow: auto;
+
+  border:
+    1px solid #1d2d40;
+
+  border-radius: 9px;
+}
+
+
+.related-table-wrap
+.table-wrap {
+  border: 0;
+
+  border-radius: 0;
+}
+
+
+/* =========================================================
+   Analyst Pivot Buttons
+   ========================================================= */
+
+#detail-actions {
+  position: sticky;
+
+  bottom: -24px;
+
+  z-index: 5;
+
+  margin-top: 23px;
+
+  padding:
+    14px 0 0;
+
+  border-top:
+    1px solid #26384c;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12, 21, 32, 0.85),
+      #0c1520 30%
+    );
+
+  backdrop-filter:
+    blur(10px);
+}
+
+
+#detail-actions button {
+  min-height: 33px;
+
+  padding:
+    7px 11px;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Responsive Threat Hunting
+   ========================================================= */
+
+@media (
+  max-width: 1050px
+) {
+
+  .hunt-results-summary {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .event-detail-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+@media (
+  max-width: 650px
+) {
+
+  .hunt-results-summary {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .event-detail-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .inspection-badges {
+    justify-content:
+      flex-start;
+  }
+
+}
+
+/* =========================================================
+   Enterprise Investigation Workspace
+   ========================================================= */
+
+.investigation-workspace {
+  display: grid;
+  gap: 18px;
+}
+
+
+/* =========================================================
+   Investigation Command Bar
+   ========================================================= */
+
+.incident-command-bar {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+
+.incident-primary-actions {
+  justify-content: flex-end;
+}
+
+
+.incident-back-button {
+  min-height: 35px;
+}
+
+
+.incident-status-action {
+  min-width: 128px;
+}
+
+
+/* =========================================================
+   Incident Hero
+   ========================================================= */
+
+.incident-hero {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  min-height: 142px;
+
+  padding: 24px 26px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #293c51;
+
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 92% 10%,
+      rgba(255, 125, 138, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 72% 90%,
+      rgba(89, 225, 194, 0.05),
+      transparent 32%
+    ),
+    linear-gradient(
+      140deg,
+      #111d2b,
+      #0c1621
+    );
+
+  box-shadow:
+    0 16px 38px
+    rgba(0, 0, 0, 0.2);
+}
+
+
+.incident-hero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -85px;
+  top: -135px;
+
+  width: 275px;
+  height: 275px;
+
+  border:
+    1px solid
+    rgba(255, 125, 138, 0.04);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 42px
+      rgba(255, 125, 138, 0.012),
+    0 0 0 85px
+      rgba(89, 225, 194, 0.008);
+
+  pointer-events: none;
+}
+
+
+.incident-hero-copy {
+  position: relative;
+  z-index: 1;
+
+  max-width: 720px;
+}
+
+
+.incident-hero-title {
+  margin:
+    5px 0 8px;
+
+  color: #f1f7ff;
+
+  font-size: 23px;
+
+  letter-spacing:
+    -0.55px;
+}
+
+
+.incident-hero-description {
+  margin: 0;
+
+  color: #8499b1;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+.incident-meta-badges {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  max-width: 430px;
+
+  flex-wrap: wrap;
+}
+
+
+.incident-rule-badge,
+.incident-technique-badge {
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+}
+
+
+.incident-window-badge {
+  color: #9bb1c8;
+}
+
+
+.incident-source-badge {
+  color: #8fbcff;
+}
+
+
+/* =========================================================
+   Incident Statistics
+   ========================================================= */
+
+.incident-stat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+}
+
+
+.incident-stat {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 15px 16px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #213247;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101b29,
+      #0b1520
+    );
+}
+
+
+.incident-stat::after {
+  content: "";
+
+  position: absolute;
+
+  left: 16px;
+  bottom: 0;
+
+  width: 28px;
+  height: 2px;
+
+  border-radius: 99px;
+
+  background: #667b91;
+}
+
+
+.incident-stat-label {
+  display: block;
+
+  color: #6c839c;
+
+  font-size: 8px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.incident-stat-value {
+  display: block;
+
+  margin:
+    9px 0 5px;
+
+  color: #ecf4fe;
+
+  font-size: 23px;
+
+  line-height: 1;
+}
+
+
+.incident-stat-note {
+  display: block;
+
+  color: #697f97;
+
+  font-size: 8px;
+}
+
+
+.incident-stat.healthy::after {
+  background: #59e1c2;
+}
+
+
+.incident-stat.info::after {
+  background: #72a7ff;
+}
+
+
+.incident-stat.warning::after {
+  background: #f4c56a;
+}
+
+
+.incident-stat.warning
+.incident-stat-value {
+  color: #efca7d;
+}
+
+
+/* =========================================================
+   Recording Window
+   ========================================================= */
+
+.incident-window-panel {
+  padding: 16px;
+
+  border:
+    1px solid #213349;
+
+  border-radius: 11px;
+
+  background:
+    rgba(8, 16, 25, 0.55);
+}
+
+
+.incident-window-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 12px;
+}
+
+
+.incident-window-heading strong {
+  color: #c8d7e7;
+
+  font-size: 11px;
+}
+
+
+.incident-window-times {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 8px;
+}
+
+
+/* =========================================================
+   Coverage Warning
+   ========================================================= */
+
+.incident-coverage-banner {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 14px 16px;
+
+  border:
+    1px solid
+    rgba(244, 197, 106, 0.19);
+
+  border-radius: 10px;
+
+  background:
+    rgba(82, 65, 30, 0.2);
+}
+
+
+.incident-coverage-icon {
+  width: 28px;
+  height: 28px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(244, 197, 106, 0.28);
+
+  border-radius: 50%;
+
+  color: #f1ca78;
+
+  background:
+    rgba(104, 82, 36, 0.25);
+
+  font-weight: 800;
+}
+
+
+.incident-coverage-copy strong {
+  display: block;
+
+  color: #d8c38f;
+
+  font-size: 11px;
+}
+
+
+.incident-coverage-copy p {
+  margin:
+    5px 0 0;
+
+  color: #968760;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   Main Investigation Grid
+   ========================================================= */
+
+.enterprise-investigation-grid {
+  grid-template-columns:
+    minmax(300px, 0.82fr)
+    minmax(0, 1.55fr);
+
+  gap: 14px;
+
+  margin-top: 0;
+}
+
+
+.enterprise-investigation-grid
+.investigation-card {
+  margin: 0;
+
+  padding: 18px;
+
+  border:
+    1px solid #203145;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0e1925,
+      #0a141e
+    );
+}
+
+
+.investigation-card-heading {
+  margin-bottom: 15px;
+
+  padding-bottom: 13px;
+
+  border-bottom:
+    1px solid #1c2c3d;
+}
+
+
+.investigation-card-heading h2 {
+  margin:
+    4px 0;
+
+  color: #e5eef9;
+
+  font-size: 15px;
+}
+
+
+.investigation-card-heading p {
+  margin: 0;
+
+  color: #6d829a;
+
+  font-size: 9px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   Process Tree
+   ========================================================= */
+
+.process-tree-card {
+  min-width: 0;
+}
+
+
+.process-tree {
+  max-height: 560px;
+
+  padding:
+    4px 5px 4px 0;
+
+  overflow: auto;
+}
+
+
+.process-row {
+  margin:
+    6px 0 6px
+    var(--indent);
+
+  padding-left: 8px;
+
+  border-left:
+    1px solid #263a50;
+}
+
+
+.enterprise-process-node {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 51px;
+
+  padding: 9px 10px;
+
+  text-align: left;
+
+  border:
+    1px solid #203247;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #111e2c,
+      #0d1723
+    );
+
+  box-shadow: none;
+}
+
+
+.enterprise-process-node:hover {
+  border-color: #35516d;
+
+  background:
+    linear-gradient(
+      145deg,
+      #15263a,
+      #101c2a
+    );
+}
+
+
+.enterprise-process-node.selected {
+  border-color:
+    rgba(89, 225, 194, 0.46);
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(89, 225, 194, 0.08),
+      transparent 50%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(21, 67, 58, 0.62),
+      rgba(12, 39, 35, 0.62)
+    );
+}
+
+
+.process-node-identity strong {
+  display: block;
+
+  color: #d9e6f4;
+
+  font-size: 10px;
+
+  overflow-wrap: anywhere;
+}
+
+
+.process-node-identity small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #6c829a;
+
+  font-size: 8px;
+}
+
+
+.process-alert-label {
+  display: inline-block;
+
+  margin-top: 7px;
+
+  padding:
+    2px 6px;
+
+  border:
+    1px solid
+    rgba(255, 125, 138, 0.23);
+
+  border-radius: 5px;
+
+  color: #ff9da8;
+
+  background:
+    rgba(91, 38, 45, 0.35);
+
+  font-size: 7px;
+
+  font-weight: 780;
+
+  letter-spacing: 0.7px;
+}
+
+
+.process-warning-label {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #a88f61;
+
+  font-size: 7px;
+}
+
+
+.process-more-button {
+  width: 100%;
+
+  margin-top: 10px;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Process Inspector
+   ========================================================= */
+
+.enterprise-process-inspector {
+  margin-top: 16px;
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid #1e2e40;
+}
+
+
+.process-inspector-heading h3 {
+  margin:
+    4px 0 12px;
+
+  color: #dce8f5;
+
+  font-size: 13px;
+}
+
+
+.process-inspector-empty {
+  padding: 16px;
+
+  border:
+    1px dashed #25394e;
+
+  border-radius: 8px;
+
+  color: #71869e;
+
+  background:
+    rgba(8, 16, 24, 0.38);
+
+  font-size: 9px;
+
+  line-height: 1.55;
+}
+
+
+.selected-process-name {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #e3edf8;
+
+  font-size: 12px;
+
+  overflow-wrap: anywhere;
+}
+
+
+.incident-process-detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 7px;
+}
+
+
+.incident-process-field {
+  min-width: 0;
+
+  padding: 9px 10px;
+
+  border:
+    1px solid #1f3043;
+
+  border-radius: 7px;
+
+  background:
+    rgba(7, 14, 22, 0.48);
+}
+
+
+.incident-process-field span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #607891;
+
+  font-size: 7px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.7px;
+}
+
+
+.incident-process-field strong {
+  display: block;
+
+  color: #aebfd1;
+
+  font-size: 9px;
+
+  font-weight: 550;
+
+  overflow-wrap: anywhere;
+}
+
+
+.process-command-section {
+  margin-top: 9px;
+}
+
+
+.process-command-section > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #627b94;
+
+  font-size: 7px;
+
+  letter-spacing: 0.8px;
+}
+
+
+.process-command-section pre,
+.process-guid-block {
+  max-height: 130px;
+
+  overflow: auto;
+
+  margin: 0;
+
+  padding: 10px;
+
+  border:
+    1px solid #1d2c3e;
+
+  border-radius: 7px;
+
+  color: #98adc3;
+
+  background: #070d15;
+
+  font-size: 8px;
+}
+
+
+.process-inspector-actions {
+  margin-top: 10px;
+}
+
+
+.process-inspector-actions button {
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Timeline Filters
+   ========================================================= */
+
+.enterprise-timeline-controls {
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 9px;
+
+  margin:
+    0 0 10px;
+
+  padding: 12px;
+
+  border:
+    1px solid #1d2d40;
+
+  border-radius: 9px;
+
+  background:
+    rgba(7, 14, 22, 0.45);
+}
+
+
+.enterprise-timeline-controls
+.timeline-search {
+  grid-column:
+    1 / -1;
+}
+
+
+.timeline-reset-button {
+  margin-bottom: 10px;
+
+  font-size: 8px;
+}
+
+
+.timeline-selection {
+  margin:
+    0 0 14px;
+
+  padding:
+    8px 10px;
+
+  border-left:
+    2px solid #314b65;
+
+  color: #698097;
+
+  background:
+    rgba(10, 19, 29, 0.4);
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Enterprise Timeline
+   ========================================================= */
+
+.enterprise-timeline {
+  position: relative;
+
+  display: grid;
+
+  gap: 9px;
+
+  margin-top: 0;
+}
+
+
+.enterprise-timeline-event {
+  position: relative;
+
+  margin: 0;
+
+  padding:
+    13px 14px;
+
+  border:
+    1px solid #203146;
+
+  border-left:
+    3px solid #30465e;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0f1a27,
+      #0b151f
+    );
+}
+
+
+.enterprise-timeline-event:hover {
+  border-color: #304a65;
+
+  border-left-color: #577895;
+}
+
+
+.enterprise-timeline-event.trigger {
+  border-color:
+    rgba(255, 125, 138, 0.26);
+
+  border-left-color:
+    #ff7d8a;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 125, 138, 0.07),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      #191923,
+      #11151e
+    );
+}
+
+
+.timeline-event-head {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  flex-wrap: wrap;
+}
+
+
+.timeline-event-time {
+  margin-right: auto;
+
+  color: #70869d;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+}
+
+
+.timeline-event-body {
+  margin-top: 9px;
+}
+
+
+.timeline-event-body > strong {
+  display: block;
+
+  color: #d9e5f2;
+
+  font-size: 11px;
+}
+
+
+.timeline-event-body > p {
+  margin:
+    5px 0 9px;
+
+  color: #8ca0b6;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
+}
+
+
+.timeline-event-actions button {
+  min-height: 29px;
+
+  padding:
+    5px 9px;
+
+  font-size: 8px;
+}
+
+
+.timeline-empty-state,
+.process-tree-empty {
+  padding: 25px 16px;
+
+  border:
+    1px dashed #25384d;
+
+  border-radius: 8px;
+
+  color: #71869e;
+
+  background:
+    rgba(7, 14, 22, 0.35);
+
+  font-size: 9px;
+
+  text-align: center;
+
+  line-height: 1.6;
+}
+
+
+.timeline-pager {
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   Investigation Loading / Error
+   ========================================================= */
+
+.investigation-loading-state {
+  padding:
+    42px 20px;
+
+  border:
+    1px dashed #263a4f;
+
+  border-radius: 10px;
+
+  color: #7f94ab;
+
+  text-align: center;
+
+  background:
+    rgba(7, 14, 22, 0.38);
+}
+
+
+.investigation-load-error {
+  padding:
+    28px;
+
+  border:
+    1px solid
+    rgba(255, 125, 138, 0.2);
+
+  border-radius: 10px;
+
+  background:
+    rgba(72, 26, 33, 0.18);
+}
+
+
+.investigation-load-error strong {
+  color: #ffabb4;
+}
+
+
+.investigation-load-error p {
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Responsive Investigation Workspace
+   ========================================================= */
+
+@media (
+  max-width: 1150px
+) {
+
+  .incident-stat-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .enterprise-investigation-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+@media (
+  max-width: 760px
+) {
+
+  .incident-hero {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+  }
+
+
+  .incident-meta-badges {
+    justify-content:
+      flex-start;
+  }
+
+
+  .incident-window-times {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .enterprise-timeline-controls {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .enterprise-timeline-controls
+  .timeline-search {
+    grid-column: auto;
+  }
+
+}
+
+
+@media (
+  max-width: 520px
+) {
+
+  .incident-stat-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .incident-command-bar {
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
+  }
+
+
+  .incident-primary-actions {
+    justify-content:
+      flex-start;
+  }
+
+
+  .incident-primary-actions button {
+    flex: 1;
+  }
+
+
+  .incident-process-detail-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+/* =========================================================
+   Enterprise Recordings & Evidence
+   ========================================================= */
+
+.recordings-page {
+  display: grid;
+  gap: 18px;
+}
+
+
+/* =========================================================
+   Evidence Hero
+   ========================================================= */
+
+.recordings-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 28px;
+
+  min-height: 136px;
+
+  padding: 24px 26px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #293b50;
+
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 91% 10%,
+      rgba(114, 167, 255, 0.09),
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 72% 100%,
+      rgba(89, 225, 194, 0.05),
+      transparent 30%
+    ),
+    linear-gradient(
+      140deg,
+      #111d2b,
+      #0c1621
+    );
+
+  box-shadow:
+    0 16px 38px
+    rgba(0, 0, 0, 0.2);
+}
+
+
+.recordings-hero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -85px;
+  top: -135px;
+
+  width: 280px;
+  height: 280px;
+
+  border:
+    1px solid
+    rgba(114, 167, 255, 0.045);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 44px
+      rgba(114, 167, 255, 0.012),
+    0 0 0 88px
+      rgba(89, 225, 194, 0.007);
+
+  pointer-events: none;
+}
+
+
+.recordings-hero-copy {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 720px;
+}
+
+
+.recordings-hero-title {
+  margin:
+    5px 0 8px;
+
+  color: #f0f7ff;
+
+  font-size: 23px;
+
+  letter-spacing: -0.55px;
+}
+
+
+.recordings-hero-description {
+  margin: 0;
+
+  color: #8399b1;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+.recordings-hero > button {
+  position: relative;
+
+  z-index: 1;
+
+  flex: 0 0 auto;
+}
+
+
+/* =========================================================
+   Recording Statistics
+   ========================================================= */
+
+.recording-stat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+}
+
+
+.recording-stat {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 15px 16px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #213247;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101b29,
+      #0b1520
+    );
+}
+
+
+.recording-stat::after {
+  content: "";
+
+  position: absolute;
+
+  left: 16px;
+  bottom: 0;
+
+  width: 28px;
+  height: 2px;
+
+  border-radius: 99px;
+
+  background: #677d94;
+}
+
+
+.recording-stat-label {
+  display: block;
+
+  color: #6d849d;
+
+  font-size: 8px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.recording-stat-value {
+  display: block;
+
+  margin:
+    9px 0 5px;
+
+  color: #ecf4fe;
+
+  font-size: 23px;
+
+  line-height: 1;
+}
+
+
+.recording-stat-note {
+  display: block;
+
+  color: #697f97;
+
+  font-size: 8px;
+}
+
+
+.recording-stat.healthy::after {
+  background: #59e1c2;
+}
+
+
+.recording-stat.info::after {
+  background: #72a7ff;
+}
+
+
+.recording-stat.warning::after {
+  background: #f4c56a;
+}
+
+
+.recording-stat.accent::after {
+  background: #ab91ff;
+}
+
+
+.recording-stat.warning
+.recording-stat-value {
+  color: #efca7d;
+}
+
+
+/* =========================================================
+   Recording Filters
+   ========================================================= */
+
+.recordings-filter-panel {
+  margin: 0;
+
+  padding: 20px;
+}
+
+
+.recordings-controls {
+  margin-top: 8px;
+
+  padding: 14px;
+
+  border:
+    1px solid #1e2e41;
+
+  border-radius: 10px;
+
+  background:
+    rgba(7, 14, 22, 0.42);
+}
+
+
+.recordings-filter-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  margin-top: 12px;
+}
+
+
+.recordings-filter-footer
+.report-note {
+  margin: 0;
+
+  flex: 1;
+}
+
+
+/* =========================================================
+   Recording Inventory
+   ========================================================= */
+
+.recordings-inventory-panel {
+  margin: 0;
+
+  min-width: 0;
+}
+
+
+.recording-inventory-heading {
+  margin-bottom: 15px;
+}
+
+
+.recording-inventory-heading h2 {
+  margin:
+    4px 0 0;
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   Recording Identity
+   ========================================================= */
+
+.recording-identity {
+  min-width: 220px;
+}
+
+
+.recording-identity > strong {
+  display: block;
+
+  color: #e4edf8;
+
+  font-size: 11px;
+}
+
+
+.recording-identity > small {
+  display: block;
+
+  max-width: 270px;
+
+  margin-top: 4px;
+
+  overflow: hidden;
+
+  color: #687f98;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.recording-identity-badges {
+  display: flex;
+
+  gap: 5px;
+
+  flex-wrap: wrap;
+
+  margin-top: 7px;
+}
+
+
+/* =========================================================
+   Recording Source
+   ========================================================= */
+
+.badge.recording-source-endpoint {
+  color: #78ead1;
+
+  border-color:
+    rgba(89, 225, 194, 0.22);
+
+  background:
+    rgba(29, 74, 65, 0.37);
+}
+
+
+.badge.recording-source-replay {
+  color: #99c0ff;
+
+  border-color:
+    rgba(114, 167, 255, 0.23);
+
+  background:
+    rgba(38, 59, 91, 0.43);
+}
+
+
+.badge.recording-source-unknown {
+  color: #9caec2;
+
+  border-color: #304157;
+
+  background:
+    rgba(28, 42, 58, 0.44);
+}
+
+
+/* =========================================================
+   Recording Window
+   ========================================================= */
+
+.recording-window-cell {
+  display: grid;
+
+  justify-items: start;
+
+  gap: 4px;
+
+  min-width: 180px;
+}
+
+
+.recording-window-time {
+  color: #738aa2;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+
+  white-space: nowrap;
+}
+
+
+.recording-window-arrow {
+  color: #415a73;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Event Count
+   ========================================================= */
+
+.recording-count-cell {
+  min-width: 90px;
+}
+
+
+.recording-count-cell strong {
+  display: block;
+
+  color: #dce8f5;
+
+  font-size: 15px;
+}
+
+
+.recording-count-cell small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #6f849c;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Coverage
+   ========================================================= */
+
+.recording-coverage-value {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 24px;
+
+  padding:
+    3px 7px;
+
+  border:
+    1px solid
+    rgba(244, 197, 106, 0.18);
+
+  border-radius: 6px;
+
+  color: #d3b873;
+
+  background:
+    rgba(82, 65, 30, 0.2);
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Export State
+   ========================================================= */
+
+.recording-export-state {
+  min-width: 150px;
+}
+
+
+.recording-export-state > span {
+  display: inline-block;
+
+  padding:
+    3px 7px;
+
+  border-radius: 6px;
+
+  font-size: 8px;
+
+  font-weight: 720;
+}
+
+
+.recording-export-state > small {
+  display: block;
+
+  margin-top: 6px;
+
+  max-width: 190px;
+
+  color: #6d839a;
+
+  font-size: 8px;
+
+  line-height: 1.45;
+}
+
+
+.recording-export-ready {
+  color: #78e8cf;
+
+  border:
+    1px solid
+    rgba(89, 225, 194, 0.2);
+
+  background:
+    rgba(29, 74, 65, 0.35);
+}
+
+
+.recording-export-blocked {
+  color: #e6bc70;
+
+  border:
+    1px solid
+    rgba(244, 197, 106, 0.2);
+
+  background:
+    rgba(85, 65, 29, 0.31);
+}
+
+
+/* =========================================================
+   Recording Actions
+   ========================================================= */
+
+.recording-actions {
+  min-width: 180px;
+}
+
+
+.recording-actions button {
+  min-height: 30px;
+
+  padding:
+    5px 9px;
+
+  font-size: 8px;
+}
+
+
+.recording-export-button {
+  border-color:
+    rgba(114, 167, 255, 0.22);
+
+  color: #9ac0ff;
+}
+
+
+.recording-investigate-button {
+  border-color:
+    rgba(89, 225, 194, 0.25);
+
+  color: #77e8cf;
+
+  background:
+    rgba(28, 72, 63, 0.33);
+}
+
+
+/* =========================================================
+   Recording Notes / Empty State
+   ========================================================= */
+
+.recordings-coverage-note {
+  margin:
+    15px 0 0;
+
+  padding:
+    10px 12px;
+
+  border-left:
+    2px solid #344d67;
+
+  color: #687f97;
+
+  background:
+    rgba(8, 16, 25, 0.4);
+
+  font-size: 8px;
+
+  line-height: 1.55;
+}
+
+
+.recording-empty-state {
+  padding:
+    36px 20px;
+
+  border:
+    1px dashed #273a50;
+
+  border-radius: 9px;
+
+  color: #71879f;
+
+  background:
+    rgba(7, 14, 22, 0.34);
+
+  text-align: center;
+}
+
+
+.recording-empty-state strong {
+  display: block;
+
+  color: #dce7f4;
+}
+
+
+.recording-empty-state p {
+  max-width: 520px;
+
+  margin:
+    7px auto 0;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Evidence Verification
+   ========================================================= */
+
+.evidence-verification-panel {
+  margin: 0;
+}
+
+
+.evidence-verification-panel
+.section-heading p,
+.recent-exports-panel
+.section-heading p {
+  margin:
+    5px 0 0;
+
+  color: #71869e;
+
+  font-size: 9px;
+}
+
+
+.evidence-verification-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 0.7fr)
+    minmax(0, 1.3fr);
+
+  gap: 10px;
+
+  margin-top: 14px;
+}
+
+
+.evidence-verification-card {
+  min-width: 0;
+
+  padding: 15px;
+
+  border:
+    1px solid #203247;
+
+  border-radius: 9px;
+
+  background:
+    rgba(7, 14, 22, 0.44);
+}
+
+
+.evidence-card-label {
+  display: block;
+
+  color: #617b95;
+
+  font-size: 7px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.evidence-verification-card
+> strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #d7e4f2;
+
+  font-size: 11px;
+}
+
+
+.evidence-file-list {
+  display: grid;
+
+  gap: 6px;
+
+  margin:
+    12px 0 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.evidence-file-list li {
+  padding:
+    7px 9px;
+
+  border:
+    1px solid #1d2d40;
+
+  border-radius: 6px;
+
+  color: #9bb0c7;
+
+  background: #080f18;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+}
+
+
+.verification-command-card pre {
+  margin:
+    12px 0 0;
+
+  padding: 12px;
+
+  overflow: auto;
+
+  border:
+    1px solid #1c2c3d;
+
+  border-radius: 7px;
+
+  color: #8fadd0;
+
+  background: #070d15;
+
+  font-size: 9px;
+}
+
+
+.evidence-integrity-warning {
+  margin-top: 12px;
+
+  padding: 13px 14px;
+
+  border:
+    1px solid
+    rgba(244, 197, 106, 0.18);
+
+  border-radius: 9px;
+
+  background:
+    rgba(82, 65, 30, 0.18);
+}
+
+
+.evidence-integrity-warning strong {
+  display: block;
+
+  color: #d5bb7c;
+
+  font-size: 10px;
+}
+
+
+.evidence-integrity-warning p {
+  margin:
+    5px 0 0;
+
+  color: #91825e;
+
+  font-size: 8px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   Recent Exports
+   ========================================================= */
+
+.recent-exports-panel {
+  margin: 0;
+}
+
+
+/* =========================================================
+   Responsive Recordings
+   ========================================================= */
+
+@media (
+  max-width: 1100px
+) {
+
+  .recording-stat-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+
+  .evidence-verification-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+@media (
+  max-width: 720px
+) {
+
+  .recordings-hero {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .recordings-hero > button {
+    width: 100%;
+  }
+
+
+  .recordings-filter-footer {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+}
+
+
+@media (
+  max-width: 520px
+) {
+
+  .recording-stat-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+/* =========================================================
+   Enterprise Recorder Policy
+   ========================================================= */
+
+.policy-page {
+  display: grid;
+  gap: 18px;
+}
+
+
+/* =========================================================
+   Policy Hero
+   ========================================================= */
+
+.policy-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  min-height: 136px;
+
+  padding:
+    24px 26px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #293c51;
+
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 91% 8%,
+      rgba(171, 145, 255, 0.09),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 72% 100%,
+      rgba(89, 225, 194, 0.045),
+      transparent 31%
+    ),
+    linear-gradient(
+      140deg,
+      #111d2b,
+      #0c1621
+    );
+
+  box-shadow:
+    0 16px 38px
+    rgba(0, 0, 0, 0.2);
+}
+
+
+.policy-hero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -80px;
+  top: -140px;
+
+  width: 280px;
+  height: 280px;
+
+  border:
+    1px solid
+    rgba(171, 145, 255, 0.045);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 44px
+      rgba(171, 145, 255, 0.011),
+    0 0 0 88px
+      rgba(89, 225, 194, 0.007);
+
+  pointer-events: none;
+}
+
+
+.policy-hero-copy {
+  position: relative;
+  z-index: 1;
+
+  max-width: 720px;
+}
+
+
+.policy-hero-title {
+  margin:
+    5px 0 8px;
+
+  color: #f0f7ff;
+
+  font-size: 23px;
+
+  letter-spacing: -0.55px;
+}
+
+
+.policy-hero-description {
+  margin: 0;
+
+  color: #8399b1;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+.policy-mode {
+  position: relative;
+  z-index: 1;
+
+  min-width: 150px;
+
+  padding:
+    13px 15px;
+
+  border:
+    1px solid
+    rgba(171, 145, 255, 0.2);
+
+  border-radius: 9px;
+
+  background:
+    rgba(53, 43, 82, 0.28);
+}
+
+
+.policy-mode span {
+  display: block;
+
+  color: #7e70a9;
+
+  font-size: 7px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.policy-mode strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #c4b5ff;
+
+  font-size: 11px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Policy Statistics
+   ========================================================= */
+
+.policy-stat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+}
+
+
+.policy-stat {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 15px 16px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #213247;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101b29,
+      #0b1520
+    );
+}
+
+
+.policy-stat::after {
+  content: "";
+
+  position: absolute;
+
+  left: 16px;
+  bottom: 0;
+
+  width: 28px;
+  height: 2px;
+
+  border-radius: 99px;
+
+  background: #667d94;
+}
+
+
+.policy-stat-label {
+  display: block;
+
+  color: #6d849d;
+
+  font-size: 8px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.policy-stat-value {
+  display: block;
+
+  margin:
+    9px 0 5px;
+
+  color: #edf5ff;
+
+  font-size: 20px;
+
+  line-height: 1.1;
+}
+
+
+.policy-stat-note {
+  display: block;
+
+  color: #697f97;
+
+  font-size: 8px;
+
+  line-height: 1.45;
+}
+
+
+.policy-stat.healthy::after {
+  background: #59e1c2;
+}
+
+
+.policy-stat.info::after {
+  background: #72a7ff;
+}
+
+
+.policy-stat.warning::after {
+  background: #f4c56a;
+}
+
+
+.policy-stat.accent::after {
+  background: #ab91ff;
+}
+
+
+/* =========================================================
+   Policy Sections
+   ========================================================= */
+
+.policy-section {
+  margin: 0;
+
+  min-width: 0;
+}
+
+
+.policy-section-heading {
+  align-items: flex-start;
+
+  margin-bottom: 14px;
+}
+
+
+.policy-section-heading h2 {
+  margin:
+    4px 0 4px;
+
+  color: #e7eff9;
+
+  font-size: 16px;
+}
+
+
+.policy-section-heading p {
+  margin: 0;
+
+  max-width: 680px;
+
+  color: #70869e;
+
+  font-size: 9px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   Configuration Values
+   ========================================================= */
+
+.policy-value {
+  color: #bfd0e2;
+
+  font-weight: 620;
+}
+
+
+.policy-value.mono {
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Detection Rule
+   ========================================================= */
+
+.policy-rule-id {
+  padding:
+    6px 9px;
+
+  border:
+    1px solid
+    rgba(114, 167, 255, 0.2);
+
+  border-radius: 6px;
+
+  color: #92bcff;
+
+  background:
+    rgba(38, 61, 94, 0.34);
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+}
+
+
+.policy-rule-summary {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 14px;
+
+  padding: 15px;
+
+  border:
+    1px solid #203247;
+
+  border-radius: 9px;
+
+  background:
+    rgba(7, 14, 22, 0.44);
+}
+
+
+.policy-rule-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #607a94;
+
+  font-size: 7px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.policy-rule-identity strong {
+  display: block;
+
+  color: #e2ecf7;
+
+  font-size: 13px;
+}
+
+
+.policy-rule-identity small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #6d849c;
+
+  font-size: 8px;
+}
+
+
+.policy-requirement {
+  min-width: 120px;
+
+  padding:
+    10px 12px;
+
+  border:
+    1px solid
+    rgba(89, 225, 194, 0.17);
+
+  border-radius: 8px;
+
+  background:
+    rgba(29, 74, 65, 0.22);
+}
+
+
+.policy-requirement span {
+  display: block;
+
+  color: #5f917f;
+
+  font-size: 7px;
+
+  font-weight: 780;
+
+  letter-spacing: 0.8px;
+}
+
+
+.policy-requirement strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #75e2ca;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   Detection Relationship
+   ========================================================= */
+
+.policy-detection-flow {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    45px
+    minmax(0, 1fr);
+
+  align-items: stretch;
+
+  gap: 9px;
+
+  margin:
+    0 0 16px;
+}
+
+
+.policy-process-group {
+  min-width: 0;
+
+  padding: 14px;
+
+  border:
+    1px solid #213348;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0f1a27,
+      #0a141e
+    );
+}
+
+
+.policy-group-label {
+  display: block;
+
+  color: #637c96;
+
+  font-size: 7px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.policy-process-group > strong {
+  display: block;
+
+  margin:
+    6px 0 10px;
+
+  color: #cddbea;
+
+  font-size: 10px;
+}
+
+
+.policy-image-tags {
+  display: flex;
+
+  gap: 6px;
+
+  flex-wrap: wrap;
+}
+
+
+.policy-image-tags code {
+  padding:
+    4px 7px;
+
+  border:
+    1px solid #253a50;
+
+  border-radius: 6px;
+
+  color: #99b2ca;
+
+  background: #080f18;
+
+  font-size: 8px;
+}
+
+
+.policy-flow-arrow {
+  display: grid;
+
+  place-items: center;
+
+  color: #59e1c2;
+
+  font-size: 23px;
+
+  opacity: 0.7;
+}
+
+
+.policy-empty-value {
+  color: #697f97;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Scope / Limitations
+   ========================================================= */
+
+.policy-limitations {
+  display: grid;
+
+  gap: 8px;
+}
+
+
+.policy-limitation {
+  display: grid;
+
+  grid-template-columns:
+    32px
+    minmax(0, 1fr);
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding:
+    12px 13px;
+
+  border:
+    1px solid #1f3044;
+
+  border-radius: 8px;
+
+  background:
+    rgba(7, 14, 22, 0.42);
+}
+
+
+.policy-limitation-number {
+  display: grid;
+
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  border:
+    1px solid #2d435b;
+
+  border-radius: 6px;
+
+  color: #758da6;
+
+  background:
+    rgba(24, 38, 54, 0.62);
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+}
+
+
+.policy-limitation p {
+  margin:
+    4px 0 0;
+
+  color: #8599af;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+}
+
+
+.policy-readonly-note {
+  margin-top: 14px;
+
+  padding: 13px 14px;
+
+  border:
+    1px solid
+    rgba(114, 167, 255, 0.16);
+
+  border-radius: 8px;
+
+  background:
+    rgba(35, 55, 83, 0.2);
+}
+
+
+.policy-readonly-note strong {
+  display: block;
+
+  color: #a2c4f5;
+
+  font-size: 10px;
+}
+
+
+.policy-readonly-note p {
+  margin:
+    4px 0 0;
+
+  color: #7188a2;
+
+  font-size: 8px;
+
+  line-height: 1.55;
+}
+
+
+.policy-empty-state {
+  padding:
+    28px 18px;
+
+  border:
+    1px dashed #26394e;
+
+  border-radius: 8px;
+
+  color: #71879f;
+
+  text-align: center;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Responsive Policy
+   ========================================================= */
+
+@media (
+  max-width: 1050px
+) {
+
+  .policy-stat-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+@media (
+  max-width: 760px
+) {
+
+  .policy-hero {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .policy-mode {
+    width: 100%;
+  }
+
+
+  .policy-rule-summary {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .policy-requirement {
+    width: 100%;
+  }
+
+
+  .policy-detection-flow {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .policy-flow-arrow {
+    transform:
+      rotate(90deg);
+
+    min-height: 30px;
+  }
+
+}
+
+
+@media (
+  max-width: 520px
+) {
+
+  .policy-stat-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+/* =========================================================
+   Enterprise Audit Trail
+   ========================================================= */
+
+.audit-page {
+  display: grid;
+  gap: 18px;
+}
+
+
+/* =========================================================
+   Audit Hero
+   ========================================================= */
+
+.audit-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  min-height: 136px;
+
+  padding:
+    24px 26px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #293c51;
+
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(114, 167, 255, 0.09),
+      transparent 29%
+    ),
+    radial-gradient(
+      circle at 74% 100%,
+      rgba(171, 145, 255, 0.05),
+      transparent 31%
+    ),
+    linear-gradient(
+      140deg,
+      #111d2b,
+      #0c1621
+    );
+
+  box-shadow:
+    0 16px 38px
+    rgba(0, 0, 0, 0.2);
+}
+
+
+.audit-hero::after {
+  content: "";
+
+  position: absolute;
+
+  right: -82px;
+  top: -140px;
+
+  width: 280px;
+  height: 280px;
+
+  border:
+    1px solid
+    rgba(114, 167, 255, 0.045);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 44px
+      rgba(114, 167, 255, 0.011),
+    0 0 0 88px
+      rgba(171, 145, 255, 0.007);
+
+  pointer-events: none;
+}
+
+
+.audit-hero-copy {
+  position: relative;
+  z-index: 1;
+
+  max-width: 720px;
+}
+
+
+.audit-hero-title {
+  margin:
+    5px 0 8px;
+
+  color: #f0f7ff;
+
+  font-size: 23px;
+
+  letter-spacing:
+    -0.55px;
+}
+
+
+.audit-hero-description {
+  margin: 0;
+
+  color: #8399b1;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+.audit-hero-state {
+  position: relative;
+  z-index: 1;
+
+  min-width: 155px;
+
+  padding:
+    13px 15px;
+
+  border:
+    1px solid
+    rgba(114, 167, 255, 0.19);
+
+  border-radius: 9px;
+
+  background:
+    rgba(35, 55, 84, 0.29);
+}
+
+
+.audit-hero-state > span {
+  display: block;
+
+  color: #6584a8;
+
+  font-size: 7px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.audit-hero-state > strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #a8c9f6;
+
+  font-size: 11px;
+}
+
+
+.audit-hero-state > small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #69829d;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Audit Statistics
+   ========================================================= */
+
+.audit-stat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(0, 1fr)
+    );
+
+  gap: 10px;
+}
+
+
+.audit-stat {
+  position: relative;
+
+  min-width: 0;
+
+  padding:
+    15px 16px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #213247;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101b29,
+      #0b1520
+    );
+}
+
+
+.audit-stat::after {
+  content: "";
+
+  position: absolute;
+
+  left: 16px;
+  bottom: 0;
+
+  width: 28px;
+  height: 2px;
+
+  border-radius: 99px;
+
+  background: #647b93;
+}
+
+
+.audit-stat-label {
+  display: block;
+
+  color: #6d849d;
+
+  font-size: 8px;
+
+  font-weight: 780;
+
+  letter-spacing: 1px;
+}
+
+
+.audit-stat-value {
+  display: block;
+
+  margin:
+    9px 0 5px;
+
+  color: #edf5ff;
+
+  font-size: 23px;
+
+  line-height: 1;
+}
+
+
+.audit-stat-note {
+  display: block;
+
+  color: #697f97;
+
+  font-size: 8px;
+}
+
+
+.audit-stat.healthy::after {
+  background: #59e1c2;
+}
+
+
+.audit-stat.info::after {
+  background: #72a7ff;
+}
+
+
+.audit-stat.warning::after {
+  background: #f4c56a;
+}
+
+
+.audit-stat.accent::after {
+  background: #ab91ff;
+}
+
+
+/* =========================================================
+   Audit Search
+   ========================================================= */
+
+.audit-filter-panel {
+  margin: 0;
+}
+
+
+.audit-section-heading {
+  align-items: flex-start;
+}
+
+
+.audit-section-heading h2 {
+  margin:
+    4px 0 4px;
+
+  color: #e7eff9;
+
+  font-size: 16px;
+}
+
+
+.audit-section-heading p {
+  margin: 0;
+
+  max-width: 680px;
+
+  color: #70869e;
+
+  font-size: 9px;
+
+  line-height: 1.55;
+}
+
+
+.audit-search-controls {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.7fr)
+    minmax(220px, 0.8fr);
+
+  gap: 10px;
+
+  margin-top: 14px;
+
+  padding:
+    14px;
+
+  border:
+    1px solid #1e2e41;
+
+  border-radius: 10px;
+
+  background:
+    rgba(7, 14, 22, 0.42);
+}
+
+
+.audit-search-actions {
+  margin-top: 12px;
+}
+
+
+/* =========================================================
+   Audit Integrity Notice
+   ========================================================= */
+
+.audit-integrity-notice {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding:
+    14px 16px;
+
+  border:
+    1px solid
+    rgba(244, 197, 106, 0.18);
+
+  border-radius: 9px;
+
+  background:
+    rgba(82, 65, 30, 0.18);
+}
+
+
+.audit-integrity-icon {
+  width: 28px;
+  height: 28px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(244, 197, 106, 0.25);
+
+  border-radius: 50%;
+
+  color: #e9c675;
+
+  background:
+    rgba(96, 75, 32, 0.24);
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-weight: 700;
+}
+
+
+.audit-integrity-copy strong {
+  display: block;
+
+  color: #d4ba7e;
+
+  font-size: 10px;
+}
+
+
+.audit-integrity-copy p {
+  margin:
+    5px 0 0;
+
+  color: #918260;
+
+  font-size: 8px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   Audit Inventory
+   ========================================================= */
+
+.audit-inventory-panel {
+  margin: 0;
+
+  min-width: 0;
+}
+
+
+/* =========================================================
+   Audit Time
+   ========================================================= */
+
+.audit-time-cell {
+  min-width: 82px;
+}
+
+
+.audit-time-cell strong {
+  display: block;
+
+  color: #cbd9e9;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 10px;
+}
+
+
+.audit-time-cell small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #657c96;
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   Actor
+   ========================================================= */
+
+.audit-actor-cell {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 120px;
+}
+
+
+.audit-actor-avatar {
+  width: 25px;
+  height: 25px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid #2a4057;
+
+  border-radius: 7px;
+
+  color: #8fb0d2;
+
+  background:
+    rgba(28, 46, 65, 0.68);
+
+  font-size: 8px;
+
+  font-weight: 800;
+}
+
+
+.audit-actor-cell strong {
+  color: #c6d5e5;
+
+  font-size: 9px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Audit Actions
+   ========================================================= */
+
+.audit-action-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 23px;
+
+  padding:
+    3px 7px;
+
+  border:
+    1px solid #2a3c50;
+
+  border-radius: 6px;
+
+  color: #91a6bb;
+
+  background:
+    rgba(25, 39, 55, 0.45);
+
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    monospace;
+
+  font-size: 7px;
+
+  white-space: nowrap;
+}
+
+
+.audit-action-evidence {
+  color: #96bdff;
+
+  border-color:
+    rgba(114, 167, 255, 0.23);
+
+  background:
+    rgba(38, 59, 91, 0.42);
+}
+
+
+.audit-action-danger {
+  color: #ff9da8;
+
+  border-color:
+    rgba(255, 125, 138, 0.22);
+
+  background:
+    rgba(87, 36, 43, 0.35);
+}
+
+
+.audit-action-incident {
+  color: #edc777;
+
+  border-color:
+    rgba(244, 197, 106, 0.2);
+
+  background:
+    rgba(78, 62, 29, 0.35);
+}
+
+
+.audit-action-endpoint {
+  color: #79e8d0;
+
+  border-color:
+    rgba(89, 225, 194, 0.21);
+
+  background:
+    rgba(28, 73, 64, 0.34);
+}
+
+
+.audit-action-change {
+  color: #c1adff;
+
+  border-color:
+    rgba(171, 145, 255, 0.22);
+
+  background:
+    rgba(58, 45, 92, 0.38);
+}
+
+
+/* =========================================================
+   Audit Resource
+   ========================================================= */
+
+.audit-resource-cell {
+  max-width: 230px;
+}
+
+
+.audit-resource-cell code {
+  color: #8fa7bf;
+
+  font-size: 8px;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   Audit Detail
+   ========================================================= */
+
+.audit-detail-cell {
+  display: -webkit-box;
+
+  min-width: 220px;
+  max-width: 420px;
+
+  overflow: hidden;
+
+  color: #8499af;
+
+  font-size: 8px;
+
+  line-height: 1.55;
+
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+
+/* =========================================================
+   Empty State
+   ========================================================= */
+
+.audit-empty-state {
+  padding:
+    40px 20px;
+
+  border:
+    1px dashed #273a50;
+
+  border-radius: 9px;
+
+  color: #71879f;
+
+  background:
+    rgba(7, 14, 22, 0.34);
+
+  text-align: center;
+}
+
+
+.audit-empty-state strong {
+  display: block;
+
+  color: #dce7f4;
+}
+
+
+.audit-empty-state p {
+  max-width: 520px;
+
+  margin:
+    7px auto 0;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   Analyst Reference
+   ========================================================= */
+
+.audit-guidance-panel {
+  margin: 0;
+}
+
+
+.audit-action-examples {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 8px;
+
+  margin-top: 14px;
+}
+
+
+.audit-example {
+  display: grid;
+
+  justify-items: start;
+
+  gap: 5px;
+
+  min-height: 68px;
+
+  padding:
+    11px 12px;
+
+  text-align: left;
+
+  border:
+    1px solid #203247;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #0f1a27,
+      #0a141e
+    );
+}
+
+
+.audit-example:hover {
+  border-color: #34516c;
+
+  background:
+    linear-gradient(
+      145deg,
+      #142337,
+      #0d1926
+    );
+}
+
+
+.audit-example code {
+  color: #9ebcf0;
+
+  font-size: 8px;
+}
+
+
+.audit-example span {
+  color: #6d849c;
+
+  font-size: 8px;
+
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   Responsive Audit Trail
+   ========================================================= */
+
+@media (
+  max-width: 1050px
+) {
+
+  .audit-stat-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+}
+
+
+@media (
+  max-width: 760px
+) {
+
+  .audit-hero {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .audit-hero-state {
+    width: 100%;
+  }
+
+
+  .audit-search-controls {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .audit-action-examples {
+    grid-template-columns:
+      1fr;
+  }
+
+}
+
+
+@media (
+  max-width: 520px
+) {
+
+  .audit-stat-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+}
